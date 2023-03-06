@@ -12,4 +12,6 @@ Live Demo: https://replit.com/@Siyabongamahlal/Online-Shopping-Store
 ## Technologies
 * React
 
+## To-do:
+* Adding images... etc
 
