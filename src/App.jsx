@@ -9,9 +9,9 @@ export default function App() {
       <NavBar />
       <p></p>
       <Items
-        img =""
-        name =""
-        price =""
+        img=""
+        name=""
+        price=""
       />
       <Footer />
     </main>

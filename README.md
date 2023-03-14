@@ -13,5 +13,5 @@ Live Demo: https://replit.com/@Siyabongamahlal/Online-Shopping-Store
 * React
 
 ## To-do:
-* Adding images...
+* Adding images and styling...
 
