@@ -2,19 +2,19 @@ import './App.css'
 import NavBar from './Components/NavBar'
 import Items from './Components/Items'
 import Footer from './Components/Footer'
-import data from './data'
+import choices from './Choices'
 
 export default function App() {
-  const products = data.map((item) =>{
-    return <Items 
-             product = {item}
-            />
+  const products = choices.map((item) => {
+    return <Items
+      product={item}
+    />
   })
-  
+  console.log(products)
   return (
     <main>
       <NavBar />
-        {products}
+      {products}
       <Footer />
     </main>
   )
