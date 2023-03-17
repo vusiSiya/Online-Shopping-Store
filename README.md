@@ -1,6 +1,6 @@
 ## Online Shopping store
 
-Live Demo: https://replit.com/@Siyabongamahlal/Online-Shopping-Store
+Live Demo: https://online-shopping-store.siyabongamahlal.repl.co/
 
 ## Getting Started
 * Replit, React JavaScript template
