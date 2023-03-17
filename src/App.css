@@ -1,5 +1,46 @@
-main {
-  text-align: center;
-  vertical-align: center;
-  line-height: 100vh
+main{
+  margin: 5px;
 }
+.navBar{
+  background-color: #a19adb;
+  margin: 10px;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+}
+
+li{
+  margin-right: auto;
+}
+.storeName{
+   color: white;
+  font-size: 20px;
+  font-family: Helvetica;
+}
+.slogan{
+  margin-left: 50%;
+}
+.products--parent{
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.product{
+  background-color: grey;
+   color: yellow;
+  margin-right:auto;
+  border: none;
+  border-radius: 5px;
+  width: 20%;
+  padding: 10px;
+ 
+}
+
+.product--img{
+  height: 30%;
+}
+
+

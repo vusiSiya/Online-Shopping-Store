@@ -1,19 +1,24 @@
 
 export default [
   {
-    title: "Swati Traditional Attiers",
-    img: "./Images/Men/swati-man-at-mountain.png",
-    name: "Lihiya",
-    price: R100,
-
+  id:1,
+  img: "swati-man-in-traditional-attire.png",
+  item: "Lihiya",
+  price: R100
   },
-  title: "Swati Traditional Attiers",
-  img: "./Images/Men/swati-man-in-traditional-attire.png",
-  name: "Lihiya",
-  price: R100,
-
-
-  {},
-  {},
-  {}
+  
+  {
+  id : 2,
+  img: "swati-man-at-mountain.png",
+  item: "whole attire",
+  price: R200
+  },
+    
+  {
+    id : 3,
+    img: "the-xhosa-man-in-blue-and-white.png",
+    item: "whole attire",
+    price: R600
+  }
+  
 ]

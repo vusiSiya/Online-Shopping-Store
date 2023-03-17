@@ -1,15 +1,17 @@
 import React from 'react'
 
 export default function Items(props) {
-  const { product } = props;
-  console.log(product)
+  //const { product } = props;
+  //console.log(product)
   return (
-    <div className='anItem'>
-      <div className='ImageOfItem'>
-        <img src={`./Images/${product.img}`} />
+    <div className='product'>
+      <div className='product--img'>
+        <img src={`./Images/${props.product.img}`} />
       </div>
-      <p className='NameOfItem'>{product.name}</p>
-      <p className='PriceOfItem'>{product.price}</p>
+      <p className='product--name'>{props.product.name}</p>
+      <p className='price'>Price:
+        R{props.product.price}
+      </p>
     </div>
 
   )
