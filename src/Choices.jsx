@@ -1,17 +1,27 @@
-export default [
+import React from "react"
 
+export default [
   {
+    id: 1,
     title: "fashion",
-    img: "Men/EmaSwati/swati-man-in-traditional-attire.png",
+    img: './src/Images/Men/EmaSwati/swati-man-in-traditional-attire.jpg',
     name: "Lihiya",
-    price: 9,
+    price: 9
 
   },
   {
+    id: 2,
     title: "watches",
-    img: "/Watches/Heuer-SilverSnoe.png",
-    name: "Lihiya",
-    price: 9,
+    img: "./src/Images/Watches/Heuer-SilverSnoe.jpg",
+    name: "Heuer Silver Snow watch",
+    price: 9
+  },
+  {
+    id: 3,
+    title: "watches",
+    img: "./src/Images/Watches/Heuer-SilverSnoe.jpg",
+    name: "Heuer Silver Snow watch",
+    price: 9
   }
 
 ]

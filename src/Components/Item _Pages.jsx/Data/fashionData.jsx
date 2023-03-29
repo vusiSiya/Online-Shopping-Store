@@ -2,7 +2,7 @@
 export default [
   {
   id:1,
-  img: "swati-man-in-traditional-attire.png",
+  img: "swati-man-in-traditional-attire.jpg",
   item: "Lihiya",
   price: R100
   },
