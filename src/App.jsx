@@ -15,7 +15,7 @@ export default function App() {
     <main>
       <NavBar />
       <h3 className='slogan'>Look the part</h3>
-       <ul className="products--parent">{products}</ul>    
+      <ul className="products--parent">{products}</ul>
       <Footer />
     </main>
   )

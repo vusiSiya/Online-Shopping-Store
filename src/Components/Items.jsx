@@ -5,17 +5,15 @@ export default function Items(props) {
   //console.log(product)
   return (
     <div className='product'>
-      <p className="title" >
+      <h2 className="product--title" >
         {props.product.title}
-      </p>
-      <div className='product--img'>
-        <img src={`${props.product.img}`} />
-      </div>
+      </h2>
+      <img src={`${props.product.img}`} className='product--img' />
       <p className='product--name'>
         {props.product.name}
       </p>
-      <p className='price'>Price:
-        R{props.product.price}
+      <p className='price'>
+        Price: R{props.product.price}
       </p>
     </div>
 
