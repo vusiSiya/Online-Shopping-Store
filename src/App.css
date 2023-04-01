@@ -2,10 +2,11 @@ main{
   margin: 5px;
   font-size: 20px;
   font-family: Karla;
+  
 }
 .navBar{
   background-color: #877bf4;
-  margin: 10px;
+  margin: 10px 0px;
   height: 50px;
   display: flex;
   flex-wrap: wrap;
@@ -18,14 +19,18 @@ li{
   color: white;
 }
 .storeName{
-   color: white;
+  color: white;
   font-size: 20px;
   font-family: Helvetica;
 }
 .slogan{
   text-align: center;
+  margin: 10px;
+  background-color: #e5c580;
+  color: white;
 }
 .products--parent{
+  background-color: #a5a5df;
   margin: auto;
   display: flex;
   flex-wrap: nowrap;
@@ -35,31 +40,36 @@ li{
 .product{
   background-color: #efecec;
   color: #7763d9;
-  margin-right:auto;
-  margin-top: 20px;
+  margin: 20px auto;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   width:30% ;
-  height: 20%px;
-  padding: 15px;
+  height: auto;
+  padding: 10px;
  
 }
 
 .product--img{
-  border-radius: 5px;
-  margin: auto;
-  width:100%;
+  border-radius: 15px;
+  margin: 10px;
+  width:90%;
   height:320px;
   position: relative;
   align-items: center;  
 }
-
 .price, .product--name{
-  
-  padding: 0px;  
+  margin: 10px;
 }
 .product--title{
   text-align: center;
+  padding: 5px;
+  margin: 10px;
+}
+
+footer{
+  
+  text-align: center;
+  color: #2133c0;
 }
 
 
