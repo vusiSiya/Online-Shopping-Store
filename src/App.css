@@ -55,16 +55,25 @@ li{
   width:90%;
   height:320px;
   position: relative;
-  align-items: center;  
-}
-.price, .product--name{
-  margin: 10px;
+  align-items: center;
+  cursor:pointer;
 }
 .product--title{
   text-align: center;
   padding: 5px;
   margin: 10px;
+  font-family: helvetica;
+}      
+
+.price, .product--name{
+  margin: 10px;
+  font-weight: bold;
+  font-family: Karla
+  font-size: 20px;
+  text-align: center;
+  font-family: Helvetica;
 }
+
 
 footer{
   
