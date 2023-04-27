@@ -3,7 +3,7 @@
 Live Demo: https://online-shopping-store.siyabongamahlal.repl.co/
 
 ## Getting Started
-* Replit, React JavaScript template
+* Replit's React JavaScript template
 
 ## Technologies
 * React
