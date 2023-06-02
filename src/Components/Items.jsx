@@ -1,8 +1,6 @@
 import React from 'react'
 
-
 export default function Items(props) {
-
   return (
     <div className='product'>
       <h2 className="product--title" >
