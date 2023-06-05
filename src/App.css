@@ -29,36 +29,35 @@ li{
   color: white;
 }
 .products--parent{
-  background-color: #a5a5df;
-  margin: auto;
-  display:flex;
-  flex-wrap:wrap;
-  align-items: center;
-  justify-content:space-evenly;
+	background-color: #a5a5df;
+	margin: auto;
+	display: grid;
+	align-content: stretch;
+	grid-template-columns: auto auto auto;
+	justify-content: space-evenly;
+	justify-items: stretch;
 }
 .product{
   background-color: #d3d5d9;
-  color: #6d6685;
-  margin: 5px;
+  color: #2a2735;
+  display: grid;
+  margin:5px;
+  align-items: center;
   border: none;
-  border-radius: 2vw;
-  width: 20vw;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+	border-radius: 2vw;
+	margin:10px;
+	max-width: auto;
   padding: 3px;
+  font:1.3vw Karla;
+  font-weight:bold;
+
 }
 
-.image-wrapper{
-  width: 60%;
-  align-items: center;
-  margin: auto;
-}
 .product--img{
-  border-radius: 5vh;
-  width:100%;
-  height: 45%;
+  border-radius: 2em;
+  max-width: 20vw;
   cursor: pointer;
+  margin:1em;
 }
 .product--title{
   text-align: center;
@@ -69,28 +68,24 @@ li{
 
 .product--name{
   gap: 5px;
-  font-weight: lighter;
-  font-family: Karla;
-  font-size: 1.3vw;
+  font-weight: normal;
   margin: 0.5em 2em;
-  
 }
 .price{
   gap: 10px;
-  font-weight: lighter;
   font-family: Karla;
-  font-weight: bold;
   margin: 0px 15%;
 }
 .Btn--cart{
   display: block;
-  margin: 15px 90px 5px auto;
-  width: 50%;
   background-color: #8383e2;
+  margin: 15px auto 5px;
+  width: 50%;
   color: white;
   border-radius: 1rem;
-  border:none;
-  padding: 5px;
+  border:1px solid grey;
+  padding:5px;
+  font-size:1em;
 }
 footer{
   text-align: center;
