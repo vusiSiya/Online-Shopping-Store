@@ -9,5 +9,7 @@ Live Demo: https://online-shopping-store.siyabongamahlal.repl.co/
 * React
 
 ## To-do:
-* Adding images and styling...
+* Adding Navbar pages
+* Adding images and styling
+
 
