@@ -1,18 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function NavBar() {
   return (
-    <ul className="navBar">
-      <li className='storeName'>Sukuma Mzansi</li>
-      <li>
-        <a href='./Items_Pages/Watches'>Watches</a>
-      </li>
-      <li>
-        <a href="./Items_Pages/Computers" >Computers</a>
-      </li>
-      <li>
-        <a href="./Items_Pages/Fashion">Fashion</a>
-      </li>
-    </ul>
+    <nav className="navBar">
+      <h3 className='storeName'>Logo Here</h3>
+      <div className="pages">
+          <Link to="/">Home</Link>
+          <Link to="/men">Men</Link>
+      </div>
+    </nav>
   )
 }
