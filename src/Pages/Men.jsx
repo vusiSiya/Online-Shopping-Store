@@ -5,14 +5,11 @@ import Footer from '../Components/Footer'
 import data from '../Data'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
-export default function Women() {
-  const [clothesData, setClothesData] = React.useState([])
+export default function Men() {
+const [clothesData, setClothesData] = React.useState([])
   React.useEffect(()=>{
-    console.log("Effect Ran")
-    setClothesData(data.girls)
-    
+    setClothesData(data.guys)
   },[])
-  
   //console.log(clothesData)
   const clothes = clothesData.map(item => {
     return <Items
@@ -23,7 +20,7 @@ export default function Women() {
   })
   return (
     <>
-      <h3 className='slogan'>Women</h3>
+      <h3 className='slogan'>Men</h3>
       <div className="products--parent">
         {clothes}
       </div>

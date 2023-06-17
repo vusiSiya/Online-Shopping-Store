@@ -43,13 +43,14 @@ a:hover{
   margin:0px;
   text-align: center;
 }
-.products--parent{
-	background-color: #a5a5df;
-	display: grid;
-  padding: 0px 1em;
-	grid-template-columns: repeat(4,auto);
-	justify-content: space-evenly;
-	align-items: center;
+.products--parent {
+    background-color: #a5a5df;
+    display: grid;
+    padding: 0px 1em;
+    grid-gap: 1em;
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    align-items: center;
 }
 .product{
   background-color: #b0b0d5;
