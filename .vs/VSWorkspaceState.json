@@ -2,10 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\Images",
-    "\\src\\Images\\Computers",
-    "\\src\\Images\\Women"
+    "\\src\\Components",
+    "\\src\\Images\\Women",
+    "\\src\\Pages"
   ],
-  "SelectedNode": "\\src\\Images\\Women\\EmaSwati",
+  "SelectedNode": "\\src\\Pages\\Watches.jsx",
   "PreviewInSolutionExplorer": false
 }

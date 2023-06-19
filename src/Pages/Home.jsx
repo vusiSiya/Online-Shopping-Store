@@ -5,8 +5,8 @@ import Items from '../Components/Items'
 import data from '../Data'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
-export default function Home() {
-  let products = []
+export default function Home(props) {
+  const products = []
   //const getItems = ()=>{}
   for (let i = 1; i <= 8; i++) {
     let randomNum = Math.floor(Math.random() * 3) + 1
@@ -21,8 +21,8 @@ export default function Home() {
 
     products[i] = <Items
       key={item.id}
-      product={item}
-      handleClick={item => handleClick(item.id)}
+      item={item}
+      handleClick={item => props.handleClick(item.id)}
     />
   }
   return (
