@@ -15,19 +15,16 @@ export default function Watches() {
         setCount(prevCount => prevCount + 1)
     }
   //console.log(watchesData)
-  const watches = watchesData.map(item => {
+  const watches = watchesData.map(product => {
     return <Items
-      key={item.id}
-      product={item}
-      handleClick={item => handleClick(item.id)}
+      key={product.id}
+      product={product}
+      handleClick={product => handleClick(product.id)}
     />
   })
   return (
     <>
-      <h3 className='slogan'>Watches</h3>
-      <div className="products--parent">
-        {watches}
-      </div>
+      {watches}
     </>
   )
 }

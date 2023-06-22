@@ -8,7 +8,7 @@ export default function NavBar() {
       <div className="pages">
               <Link to="/">🏠Home</Link>
               <Link to="/men">Men</Link>
-              <Link to="/men">Women</Link>
+              <Link to="/woman">Women</Link>
       </div>
     </nav>
   )
