@@ -12,16 +12,13 @@ export default function Men(props) {
     const clothes = clothesData.map(item => {
         return <Items
                 key={item.id}
-                product={item}
+                item={item}
                 handleClick={item => props.handleClick(item.id)}
             />
     })
     return (
         <>
-            <h3 className='slogan'>Men</h3>
-            <div className="products--parent">
-                {clothes}
-            </div>
+          {clothes}
         </>
     )
 }

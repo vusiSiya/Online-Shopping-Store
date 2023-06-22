@@ -1,11 +1,13 @@
 import React from 'react'
-//import NavBar from '../Components/NavBar'
-//import Footer from '../Components/Footer'
+import {Outlet} from "react-router-dom"
+import NavBar from '../Components/NavBar'
+import Footer from '../Components/Footer'
 import Items from '../Components/Items'
 import data from '../Data'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
 export default function Home(props) {
+  
   const products = []
   //const getItems = ()=>{}
   for (let i = 1; i <= 8; i++) {
@@ -27,10 +29,7 @@ export default function Home(props) {
   }
   return (
     <>
-      <h3 className='slogan'>Choose your best look</h3>
-      <div className="products--parent">
-        {products}
-      </div>
+      {products}
     </>
   )
 }
