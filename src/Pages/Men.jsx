@@ -8,9 +8,9 @@ export default function Men(props) {
     setClothesData(data.guys)
     }, []) 
     //console.log(clothesData)
-    const clothes = clothesData.map(item => {
+    const clothes = clothesData.map( product => {
         return <Items
-            key={item.id}
+            key={product.id}
             product={product}
             handleClick={product => props.handleClick(product.id)}
         />
