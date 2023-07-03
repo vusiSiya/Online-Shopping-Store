@@ -1,7 +1,5 @@
 import React from 'react'
-//import NavBar from '../Components/NavBar'
 import Items from '../Components/Items'
-//import Footer from '../Components/Footer'
 import data from '../Data'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 

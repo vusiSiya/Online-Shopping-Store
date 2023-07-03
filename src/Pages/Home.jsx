@@ -18,8 +18,8 @@ export default function Home(props) {
   }, [allProducts])
   
   const chooseArray = (_num) =>{
-    let array = num < 2 ? allProducts.girls
-      : num === 2 ? allProducts.watches : allProducts.guys; 
+    let array = _num < 2 ? allProducts.girls
+      : _num === 2 ? allProducts.watches : allProducts.guys; 
     return array;
   }
   for (let i = 0; i < 9; i++) {

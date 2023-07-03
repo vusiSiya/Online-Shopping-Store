@@ -1,8 +1,5 @@
 import React from 'react'
 import './App.css'
-import NavBar from './Components/NavBar'
-import Items from './Components/Items'
-import Footer from './Components/Footer'
 import Home from "./Pages/Home"
 import Men from "./Pages/Men"
 import Women from "./Pages/Women"

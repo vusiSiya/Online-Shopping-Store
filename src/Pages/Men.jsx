@@ -15,6 +15,7 @@ export default function Men(props) {
             handleClick={product => props.handleClick(product.id)}
         />
     })
+
     return (
         <>
             {clothes}

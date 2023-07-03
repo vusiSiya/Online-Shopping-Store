@@ -1,8 +1,8 @@
 import React from "react"
 import  {Outlet}  from "react-router-dom"
 import NavBar from '../Components/NavBar'
-import Home from "./Home"
 import Footer from '../Components/Footer'
+
 export default function HomeLayout(props){
 
   const [count, setCount] = React.useState(0)
