@@ -2,7 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\Pages"
+    "\\src\\Images",
+    "\\src\\Images\\Men",
+    "\\src\\Images\\Women"
   ],
+  "SelectedNode": "\\src\\Images\\Women\\EmaSwati",
   "PreviewInSolutionExplorer": false
 }
