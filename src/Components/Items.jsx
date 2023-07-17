@@ -13,7 +13,7 @@ export default function Items(props) {
           <p className='price'>
             R{product.price}
           </p>
-          <button onClick={props.handleClick} className='Btn--cart'>Add to Cart</button>
+          <button onClick={(e)=>props.handleClick(e)} className='Btn--cart'>Add to Cart</button>
         </div>
       </div>
   )

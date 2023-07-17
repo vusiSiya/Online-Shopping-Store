@@ -15,7 +15,7 @@ export default function Women(props) {
     return <Items
       key={product.id}
       product={product}
-      handleClick={product => props.handleClick(product.id)}
+      handleClick={(e)=>props.handleClick(e)}
     />
   })
   return (

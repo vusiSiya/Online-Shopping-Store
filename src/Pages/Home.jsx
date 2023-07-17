@@ -17,24 +17,26 @@ export default function Home(props) {
     */
   }, [allProducts])
   
-  const chooseArray = (_num) =>{
-    let array = _num < 2 ? allProducts.girls
+  const getArray = (_num) =>{
+    let array = _num < 2 ?
+      allProducts.girls
       : _num === 2 ? allProducts.watches : allProducts.guys; 
     return array;
   }
+  
   for (let i = 0; i < 9; i++) {
     let randomNum = Math.floor(Math.random() * 3) + 1;
-    let selectedArray = chooseArray(randomNum)
+    let selectedArray = getArray(randomNum)
     let randomImage = Math.floor(Math.random() * selectedArray.length) + 1
     let item = randomNum === 2 ? allProducts.watches[0] : selectedArray[randomImage];
-    setSelectedProducts( (prevItems) => [...prevItems, item] );
-    
+    setSelectedProducts( (prevItems) => [...prevItems, item] );   
   }
+  
   const selectedItems = selectedProducts.map( product =>{
     return <Items 
       key = {product}
       product = {product}
-      handleClick = { product => props.handleClick(product.id)}
+      handleClick = {(e)=>props.handleClick(e)}
     />
   })
   return (

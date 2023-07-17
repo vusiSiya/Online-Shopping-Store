@@ -2,13 +2,15 @@ import React from "react"
 import  {Outlet}  from "react-router-dom"
 import NavBar from '../Components/NavBar'
 import Footer from '../Components/Footer'
-
-export default function HomeLayout(props){
+import data from '../Data'
+export default function HomeLayout(){
 
   const [count, setCount] = React.useState(0)
-
-  function handleClick(id) {
+  const [itemsBought, setItemsBought]= React.useState()
+  function handleClick(event) {
+    const {id} = event.target;
     setCount(prevCount => prevCount + 1)
+    //localStorage.setItem(`${data}`)
   }
   return(
      <>

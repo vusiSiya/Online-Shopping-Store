@@ -21,17 +21,17 @@ nav {
   margin: auto;
 }
 a{
-  font-size: 1em;
+  font-size: 1rem;
   color: white;
   margin: 0px 2em;
   text-decoration: none;
 }
-a:hover{
+/*a:hover{
   text-decoration: underline;
-}
+}*/
 .storeName{
   color: white;
-  font-size: 25px;
+  font-size: 1.5em;
   font-family: Helvetica;
   margin: auto 2em auto 1em;
 }
@@ -59,10 +59,10 @@ a:hover{
   font:1.3vw Karla;
   font-weight:bold;
   border: none;
-	border-radius: .5em; 
-	margin:2em;
+  border-radius: .5em; 
+  margin:2em;
   height: fit-content;
-	max-width: auto;
+  max-width: auto;
   display: flex;
   flex-direction:column;
   flex-wrap:wrap;
