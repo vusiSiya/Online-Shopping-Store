@@ -28,7 +28,7 @@ export default function Home(props) {
     let randomNum = Math.floor(Math.random() * 3) + 1;
     let selectedArray = getArray(randomNum)
     let randomImage = Math.floor(Math.random() * selectedArray.length) + 1
-    let item = randomNum === 2 ? allProducts.watches[0] : selectedArray[randomImage];
+    let item = selectedArray[randomImage];
     setSelectedProducts( (prevItems) => [...prevItems, item] );   
   }
   

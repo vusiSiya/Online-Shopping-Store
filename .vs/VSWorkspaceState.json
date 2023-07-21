@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\Pages"
   ],
-  "SelectedNode": "\\C:\\Users\\siyabonga\\Documents\\GitHub\\Online-Shopping-Store",
+  "SelectedNode": "\\src\\Pages\\Home.jsx",
   "PreviewInSolutionExplorer": false
 }

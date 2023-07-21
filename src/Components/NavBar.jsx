@@ -11,29 +11,37 @@ export default function NavBar(props) {
     <nav className="navBar">
       <h3 className='storeName'>Logo Here</h3>
       props.count && 
-        <p className="items-count">
+        <p 
+          style="font: 0.5rem white helvetica;font-weight: bold;"
+          className="items-count">
           Cart
           <span id="count">{props.count}</span>
         </p>
       <div className="pages">
               <NavLink 
-                to="/"
+                to="."
                 end
                 style={()=>isActive ? activeStyle : null}  
               >
                 Home
               </NavLink>
               <NavLink 
-                to="/men"
+                to="men"
                 style={()=>isActive ? activeStyle : null}  
               >
                 Men
               </NavLink>
               <NavLink 
-                to="/woman"
+                to="woman"
                 style={()=>isActive ? activeStyle : null}  
               >
                 Women
+              </NavLink>
+              <NavLink 
+                to="watches"
+                style={()=>isActive ? activeStyle : null}  
+              >
+                Watches
               </NavLink>
       </div>
     </nav>

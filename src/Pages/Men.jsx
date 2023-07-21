@@ -7,12 +7,10 @@ export default function Men(props) {
     React.useEffect( ()=> {
     setClothesData(data.guys)
     }, []) 
-    //console.log(clothesData)
     const clothes = clothesData.map( product => {
         return <Items
             key={product.id}
             product={product}
-            handleClick={product => props.handleClick(product.id)}
         />
     })
 

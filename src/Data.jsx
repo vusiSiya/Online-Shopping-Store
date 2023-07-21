@@ -6,7 +6,25 @@ export default {
       img: "src/Images/Watches/Heuer-SilverSnoe.jpg",
       name: "Heuer Silver Snoe",
       price: 6000
-    }
+    },
+     {
+      id: 2,
+      img: "src/Images/Watches/ omega-automatic-seamaster.jpg",
+      name: "Omega Automatic",
+      price: 6000
+    },
+    {
+      id: 3,
+      img: "src/Images/Watches/ omega-de-ville-watch.jpg",
+      name: "Omega De Ville",
+      price: 6000
+    },
+    {
+      id: 4,
+      img: "schawffhausen-watch.jpg",
+      name: "IWC SCHAWFFHUSEN",
+      price: 6000
+    },
   ],
   guys: [
     {

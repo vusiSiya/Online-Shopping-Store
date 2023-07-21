@@ -7,13 +7,14 @@ export default function Items(props) {
       <div id={props.id} className='product'>
         <img src={product.img} className='product--img' />
         <div className="content">
-          <p className='product--name'>
+          <p 
+            className='product--name'>
             {product.name}
           </p>
-          <p className='price'>
+          <p 
+            className='price'>
             R{product.price}
           </p>
-          <button onClick={(e)=>props.handleClick(e)} className='Btn--cart'>Add to Cart</button>
         </div>
       </div>
   )

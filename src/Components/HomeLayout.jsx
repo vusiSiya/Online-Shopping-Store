@@ -7,8 +7,9 @@ export default function HomeLayout(){
 
   const [count, setCount] = React.useState(0)
   const [itemsBought, setItemsBought]= React.useState()
-  function handleClick(event) {
-    const {id} = event.target;
+  function handleClick(e) {
+    console.log(e)
+    const {id} = e.target;
     setCount(prevCount => prevCount + 1)
     //localStorage.setItem(`${data}`)
   }
@@ -19,7 +20,7 @@ export default function HomeLayout(){
        </header>
        <main>
         <div className="products--parent">
-          <Outlet handeClick={handleClick} />
+          <Outlet handleClick={(e)=>handleClick(e)} />
         </div>
       </main>
       <Footer/>
