@@ -9,19 +9,19 @@ export default {
     },
      {
       id: 2,
-      img: "src/Images/Watches/ omega-automatic-seamaster.jpg",
+      img: "src/Images/Watches/omega-automatic-seamaster.jpg",
       name: "Omega Automatic",
       price: 6000
     },
     {
       id: 3,
-      img: "src/Images/Watches/ omega-de-ville-watch.jpg",
+      img: "src/Images/Watches/omega-de-ville-watch.jpg",
       name: "Omega De Ville",
       price: 6000
     },
     {
       id: 4,
-      img: "schawffhausen-watch.jpg",
+      img: "src/Images/Watches/schawffhausen-watch.jpg",
       name: "IWC SCHAWFFHUSEN",
       price: 6000
     },
@@ -29,8 +29,8 @@ export default {
   guys: [
     {
       id: 5,
-      img: './src/Images/Men/EmaSwati/swati-man-in-traditional-attire.jpg',
-      name: "Siswati Attire",
+      img: "src/Images/Men/BaSotho/sotho-guy-at-entrande.png",
+      name: "Morden Sotho Attire",
       price: 60
     },
     {
@@ -65,8 +65,8 @@ export default {
     },
     {
       id: 11,
-      img: "src/Images/Men/BaSotho/sotho-guy-at-entrande.png",
-      name: "Morden Sotho Attire",
+      img: './src/Images/Men/EmaSwati/swati-man-in-traditional-attire.jpg',
+      name: "Siswati Attire",
       price: 15000
     }
   ],

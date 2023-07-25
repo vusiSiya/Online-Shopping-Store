@@ -1,0 +1,117 @@
+html, body{
+  margin: 0px;
+}
+main{
+  padding: 2em;
+  background-color: #a5a5df;
+  font-family: Karla;
+}
+nav {
+  background-color: #877bf4;
+  margin: 0px;
+  padding: 1em;
+  height: auto;
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: space-between;
+}
+.pages{
+  margin-left: 0px;
+  margin: auto;
+}
+a{
+  font-size: 1rem;
+  color: white;
+  margin: 0px 2em;
+  text-decoration: none;
+}
+
+.storeName{
+  color: white;
+  font-size: 1.5em;
+  font-family: Helvetica;
+  margin: auto 2em auto 1em;
+}
+.slogan{
+  background-color: inherit;
+  color: white;
+  font-size: 1.3em;
+  padding: 1em;
+  margin:0px;
+  text-align: center;
+}
+.products--parent {
+    background-color: #a5a5df;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    gap: 2em 4em;
+    padding: 2em;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.product{
+  background-color: #b0b0d5;
+  color: white;
+  font:1.3vw Karla;
+  font-weight:bold;
+  border: none;
+  border-radius: .5em;
+  display: flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  align-items: center;
+  box-shadow: 0px 0px black;
+}
+.product:hover{
+  background-color: #d3d5d9;
+  color: #2a2735;
+}
+.product--img{
+  border-radius: inherit;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  width: 100%;
+  height: 15rem;
+  cursor: pointer;
+}
+.content{
+  padding: 0.5em;
+  display:flex;
+  flex-direction: column;
+  
+}
+.product--title{
+  text-align: center;
+  padding: 5px;
+  font-family: Arial;
+  margin: 10px auto;
+}      
+
+.price, .product--name{
+  font-weight: normal;
+  margin: auto;
+  font-size: 1em;
+  font-family: Karla;
+  margin: 0.5em auto;
+  text-align: center;  
+}
+.price{
+  font-weight: bold;
+}
+.Btn--cart{
+  display: block;
+  background-color: #1c863f;
+  margin: 0px auto;
+  width: 10em;
+  color: white;
+  border-radius: 0.5rem;
+  border:0.5px solid white;
+  padding:5px;
+  font-size:1em;
+}
+footer{
+  text-align: center;
+  color: #2133c0; 
+}
