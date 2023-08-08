@@ -2,19 +2,19 @@ html, body{
   margin: 0px;
 }
 main{
-  padding: auto;
+  margin: 1em;
   background-color: #a5a5df;
-  font-family: Karla;
 }
 nav {
   background-color: #877bf4;
-  margin: 0px;
+  margin: auto;
   padding: 1em;
   height: auto;
-  display: flex;
-  flex-direction:row;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, auto));
   align-items:center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .pages{
   margin-left: 0px;
@@ -28,10 +28,13 @@ a{
 }
 
 .storeName{
+  opacity: unset;
   color: white;
   font-size: 1.5em;
   font-family: Helvetica;
-  margin: auto 2em auto 1em;
+  margin: auto;
+  width: 100%;
+  height: 10rem;
 }
 .slogan{
   background-color: inherit;
@@ -42,49 +45,54 @@ a{
   text-align: center;
 }
 .products--parent {
-    background-color: #a5a5df;
     display: grid;
-    padding: 0px 1em;
-    grid-gap: 1em;
-    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2em 4em;
+    padding: 1em;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    background-image: url("./background/black-white-triangles2.jpg");
 }
+
 .product{
-  background-color: #b0b0d5;
-  /*color: #2a2735;*/
-  color: white;
-  font:1.3vw Karla;
-  font-weight:bold;
+  background-color: #e7e6e6eb;
+  color: black;
+  padding: 0.5em;
+  font: 1.3rem sans-serif;
   border: none;
-  border-radius: .5em; 
-  margin:2em;
-  height: fit-content;
-  max-width: auto;
+  border-radius: .5em;
   display: flex;
   flex-direction:column;
   flex-wrap:wrap;
   align-items: center;
-  box-shadow: #5c5c6a ;
+  /* box-shadow: 0px 0px 15px 0px black; */
+  box-shadow: 0px 0px 10px 0px black;
 }
 .product:hover{
-  background-color: #d3d5d9;
-  color: #2a2735;
+  background-color: #30259b52;
+  color: white;
+  text-shadow: 0 0 12px black;
+  box-shadow: 0 0 5px black;
 }
 .product--img{
+  margin: auto;
+  opacity: unset;
   border-radius: inherit;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
-  width: 100%;
-  height: 15vw;
+  width:100%;
+  height: 12em;
   cursor: pointer;
-  margin:0px;
 }
-.content{
-  padding: 0.5em;
+.content.d{
+  /* padding: 0.5em 0.5em 0px; */
   display:flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  
+  line-height: 2.5em;
+  margin: auto;
+  width: 100%;
 }
 .product--title{
   text-align: center;
@@ -94,28 +102,90 @@ a{
 }      
 
 .price, .product--name{
+  margin: 1rem;
+  text-align: left;
   font-weight: normal;
-  margin: auto;
-  font-size: 1em;
-  font-family: Karla;
-  margin: 0.5em auto;
-  text-align: center;  
 }
-.price{
-  font-weight: bold;
-}
-.Btn--cart{
+
+.btn--cart{
   display: block;
   background-color: #1c863f;
-  margin: 0px auto;
-  width: 10em;
+  /* margin: 0px auto; */
+  width: 100%;
   color: white;
   border-radius: 0.5rem;
   border:0.5px solid white;
-  padding:5px;
-  font-size:1em;
+  padding: 0.3em;
+  height: min-content;
+  font-size: 1.4rem;
+  font-family: sans-serif;
 }
 footer{
   text-align: center;
-  color: #2133c0; 
+  color: #2133c0;
+  font: 1em sans-serif;
+  font-weight: bold;
+}
+
+
+div.container {
+	padding: 0.3em;
+}
+
+.product.details {
+	margin: auto;
+	width: auto;
+	align-items: flex-end;
+	display: grid;
+	height: auto;
+	padding: 1em;
+	gap: 1.5em;
+}
+
+section.description {
+	display: flex;
+	flex-direction: column;
+	width: inherit;
+	flex-wrap: wrap;
+	line-height: 1.5rem;
+	font-family: sans-serif;
+	gap: 1em;
+}
+
+p.description {
+	text-align: start;
+	width: auto;
+	margin: 0px;
+}
+
+h4{
+	font-size: 2rem;
+	margin: 0px;
+}
+
+img.product--img:hover {
+	box-shadow: 0px 0px 5px 0px grey;
+}
+
+.content {
+	display: grid;
+	font: 1.5rem sans-serif;
+	gap: 0.8em;
+}
+
+#details {
+	font-family: sans-serif;
+	font-weight: normal;
+	margin: 0px;
+}
+
+div.selected {
+	display: grid;
+}
+
+.selected-product {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	align-items: end;
+	gap: 1em;
 }

@@ -8,6 +8,7 @@ export default function ClothingDetail(props) {
 	React.useEffect(()=>{
 		setItem(params.id);
 	},[])
+
 	const style={
 		margin: "auto",
 		padding: "0.5em",
@@ -17,27 +18,24 @@ export default function ClothingDetail(props) {
 	}
 	
 	return(
-		<div style= {{style}} class="item-details-tile">
-			<div className="item" >
-				<img src={item.img}/>
-				<section className="content">
-					<p className="name">{item.name}</p>
-					<p className="price">{item.price}</p>
-				</section>
-				<button 
-					className='Btn--cart'
-					onClick={(e)=>props.handleClick(e)}
-					>
-					Add to Cart
-				</button>
+		<div id={item.id} class='product details'>
+			<div class="selected-product">
+				<img src={item.img} class='product--img' />
+				<div class="content">
+					<p id="details" class='product--name'>{item.name}</p>
+					<p id="details" class='price'>Price: R {item.price}</p>
+					<button id={item.id} class='btn--cart'>
+						Add to Cart
+					</button>
+				</div>
 			</div>
-			<section className = "description">
-				<h1>Details</h1>
+			<section class = "description">
+				<h4>Details</h4>
 				<p class="description">
-					lorem ipsum ipsum lorem ipusm lorem ipsum ipsum lorem ipusm
-					lorem ipsum ipsum lorem ipusm lorem ipsum ipsum lorem ipusm
-					lorem ipsum ipsum lorem ipusm lorem ipsum ipsum lorem ipusm
-					lorem ipsum ipsum lorem ipusm lorem ipsum ipsum lorem ipusm	
+					lorem ipsum ipsum lorem ipusm lorem
+					ipsum ipsum lorem ipusm<br/>
+					lorem ipsum ipsum lorem ipusm lorem ipsum ipsum lorem<br/>ipusm
+					lorem ipsum ipsum lorem ipusm lorem ipsum ipsum lorem ipusm<br/>			
 				</p>
 			</section>
 		</div>

@@ -5,7 +5,9 @@ import data from '../Data'
 export default function Men(props) {
     const [clothesData, setClothesData] = React.useState([])
     React.useEffect( ()=> {
-    setClothesData(data.guys)
+    const {items} = data;
+    const guys = items.filter( item => item.category === "guys");
+    setClothesData(guys);
     }, []) 
     const clothes = clothesData.map( product => {
         return <Items

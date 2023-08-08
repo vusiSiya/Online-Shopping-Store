@@ -4,18 +4,9 @@ import { Link } from 'react-router-dom'
 export default function Items(props) {
   const {product} = props;
   return (
-      <div id={props.id} className='product'>
-        <img src={product.img} className='product--img' />
-        <div className="content">
-          <p 
-            className='product--name'>
-            {product.name}
-          </p>
-          <p 
-            className='price'>
-            R{product.price}
-          </p>
-        </div>
-      </div>
+    <div id={props.id} className='product'>
+        <img src={props.img} className='product--img' />
+	    <p className='product--name'>{props.name}</p>
+    </div>
   )
 }
