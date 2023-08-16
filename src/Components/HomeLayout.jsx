@@ -2,11 +2,15 @@ import React from "react"
 import  {Outlet}  from "react-router-dom"
 import NavBar from '../Components/NavBar'
 import Footer from '../Components/Footer'
-import data from '../Data'
+import {useSearchParams} from "react-router-dom"
 export default function HomeLayout(){
 
   const [count, setCount] = React.useState(0)
-  const [itemsBought, setItemsBought]= React.useState()
+  const [itemsBought, setItemsBought]= React.useState();
+  
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryFilter = searchParams.get("category");
+  
   function handleClick(e) {
     console.log(e)
     const {id} = e.target;
@@ -16,11 +20,11 @@ export default function HomeLayout(){
   return(
      <>
        <header>
-         <NavBar count={count}/>
+         <NavBar context={[count, setCount]} filter={categoryFilter}/>
        </header>
        <main>
         <div className="products--parent">
-          <Outlet handleClick={(e)=>handleClick(e)} />
+          <Outlet context={[searchParams, setSearchParams]} filter={categoryFilter}/>
         </div>
       </main>
       <Footer/>

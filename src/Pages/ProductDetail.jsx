@@ -4,21 +4,22 @@ import data from '../Data'
 
 export default function ClothingDetail(props) {
 	const params = useParams();
-	const {item, setItem} = React.useState(null)
+	const {item, setItem} = React.useState()
 	React.useEffect(()=>{
 		setItem(params.id);
 	},[])
-
-	const style={
+	const styling={
 		margin: "auto",
 		padding: "0.5em",
 		color: "black",
 		fontSize: "1rem",
 		borderRadius: "0.5rem",
 	}
-	
+  if (!item) {
+    return <h3>Loading...</h3>
+  }
 	return(
-		<div id={item.id} class='product details'>
+		<div style={{styling}} id={item.id} class='product details'>
 			<div class="selected-product">
 				<img src={item.img} class='product--img' />
 				<div class="content">
