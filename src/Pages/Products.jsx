@@ -12,10 +12,10 @@ export async function loader() {
 }
 export default function Products() {
   const products = useLoaderData()
-
+  
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryFilter = searchParams.get("category");
-
+  
   function getRandomProducts() {
     let newArray = []
     for (let i = 1; i <= 8; i++) {
@@ -25,12 +25,12 @@ export default function Products() {
     return newArray;
   };
 
-  const selectedProductsData = categoryFilter
+ const selectedProductsData = categoryFilter 
     ? products.filter((item, i) => item.category === categoryFilter)
     : getRandomProducts();
-
+  
   const selectedProducts = selectedProductsData.map(product => {
-    return <Items
+    return <Items 
       key={product?.id}
       product={product}
     />
@@ -39,36 +39,36 @@ export default function Products() {
   return (
     <>
       <section className="filters">
-        <button
+            <button
           className="filter"
           onClick={() => setSearchParams({ category: "women" })}
-        >
+              >
           women
-        </button>
-        <button
+            </button>
+            <button 
           className="filter"
           onClick={() => setSearchParams({ category: "men" })}
-        >
+              >
           men
-        </button>
-        <button
+            </button>
+            <button 
           className="filter"
           onClick={() => setSearchParams({ category: "watches" })}
 
-        >
+              >
           watches
-        </button>
+            </button>
         {categoryFilter &&
-          <button
+            <button 
             className="filter"
             onClick={() => setSearchParams({})}
-          >
+              >
             view all
           </button>}
       </section>
       <section className="display-products">
         {selectedProducts}
-      </section>
+      </section>  
     </>
   )
 }
