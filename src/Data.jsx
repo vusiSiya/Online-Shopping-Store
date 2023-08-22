@@ -1,6 +1,6 @@
 
 export default {
-  items: [{
+  products: [{
     id: 1,
     img: "src/Images/Watches/Heuer-SilverSnoe.jpg",
     name: "Heuer Silver Snoe",

@@ -20,7 +20,7 @@ export default function HomeLayout(){
   return(
      <>
        <header>
-         <NavBar context={[count, setCount]} filter={categoryFilter}/>
+         <NavBar count={count} filter={categoryFilter}/>
        </header>
        <main>
         <div className="products--parent">
