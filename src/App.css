@@ -18,7 +18,7 @@ nav {
   height: auto;
   border-radius: 0.4rem;
 }
-.pages{
+.filters{
   margin-left: 0px;
   grid-column: -4/-2;
 }

@@ -1,5 +1,5 @@
 ## Online Shopping store
-<a href="https://online-shopping-store.siyabongamahlal.repl.co/">👉Live Demo</a>
+<a href="https://shopping-cart-project.siyabongamahlal.repl.co/">👉Live Demo</a>
 ## Getting Started
 * Replit's React JavaScript template
 
