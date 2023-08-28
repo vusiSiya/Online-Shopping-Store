@@ -12,7 +12,6 @@ export default function HomeLayout(){
   const categoryFilter = searchParams.get("category");
   
   function handleClick(e) {
-    console.log(e)
     const {id} = e.target;
     setCount(prevCount => prevCount + 1)
     //localStorage.setItem(`${data}`)
@@ -23,9 +22,9 @@ export default function HomeLayout(){
          <NavBar count={count} filter={categoryFilter}/>
        </header>
        <main>
-        <div className="products--parent">
-          <Outlet context={[searchParams, setSearchParams]} filter={categoryFilter}/>
-        </div>
+          <Outlet 
+            context={[searchParams, setSearchParams]} 
+            filter={categoryFilter}/>
       </main>
       <Footer/>
     </>

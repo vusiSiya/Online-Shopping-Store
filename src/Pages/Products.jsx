@@ -40,32 +40,34 @@ export default function Products() {
     <>
       <section className="filters">
             <button
-          className="filter"
-          onClick={() => setSearchParams({ category: "women" })}
-              >
-          women
+            className="filter"
+            onClick={() => setSearchParams({ category: "women" })}
+            >
+              women
             </button>
-            <button 
-          className="filter"
-          onClick={() => setSearchParams({ category: "men" })}
-              >
-          men
-            </button>
-            <button 
-          className="filter"
-          onClick={() => setSearchParams({ category: "watches" })}
-
-              >
-          watches
-            </button>
-        {categoryFilter &&
             <button 
             className="filter"
-            onClick={() => setSearchParams({})}
-              >
-            view all
-          </button>}
-      </section>
+            onClick={() => setSearchParams({ category: "men" })}
+            >
+              men
+            </button>
+            <button 
+            className="filter"
+            onClick={() => setSearchParams({ category: "watches" })}
+
+            >
+              watches
+            </button>
+            {
+              categoryFilter && (
+                <button 
+                  className="filter"
+                  onClick={() => setSearchParams({})}
+                >
+                view all
+              </button>)
+            }
+        </section>
       <section className="display-products">
         {selectedProducts}
       </section>  

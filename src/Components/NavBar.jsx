@@ -17,15 +17,13 @@ export default function NavBar(props) {
       <div className="container">
         <img src="src/Images/background/site-logo-2.png" className="site-logo" />
       </div>
+      
       <NavLink
-        id="on-cart"
-        className="items-count"
-        to="on-cart"
+        to="/"
         style={({isActive}) => isActive && activeStyle || null}
       >
-      Cart
-      <p id="count" style={{ countStyle }}>{props.count}</p>
-      </NavLink>
+      Home
+      </NavLink> 
       <NavLink to="about"
         style={({isActive}) => isActive && activeStyle || null}
         >About</NavLink>

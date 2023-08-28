@@ -1,5 +1,6 @@
 
 export default {
+  backgroundImgUrls:["src/Images/Miscelleneous/basotho-khaebana.png"],
   products: [{
     id: 1,
     img: "src/Images/Watches/Heuer-SilverSnoe.jpg",
@@ -39,7 +40,7 @@ export default {
   }, {
     id: 7,
     img: 'src/Images/Men/EmaSwati/swati-man-in-traditional-attire.jpg',
-    name: "Siswati Attire",
+    name: "Swati Attire",
     price: 15000,
     category: "men"
   }, {
@@ -105,13 +106,13 @@ export default {
   }, {
     id: 19,
     img: "src/Images/Women/AmaXhosa/little-xhosa-girl.png",
-    name: "Xhosa beads work",
+    name: "Xhosa beads",
     price: 15000,
     category: "women"
   }, {
     id: 20,
     img: "src/Images/Women/AmaXhosa/xhosa-lady.png",
-    name: "Xhosa Yellow dress",
+    name: "Yellow Xhosa dress",
     price: 15000,
     category: "women"
   }, {
@@ -130,7 +131,7 @@ export default {
     id: 23,
     img:
       "src/Images/Women/Basotho/4b8273e27d70a288a77c7a763cc7eef1.jpg",
-    name: "Brown Seshweshwe dress",
+    name: "Seshweshwe dress",
     price: 15000,
     category: "women"
   }]

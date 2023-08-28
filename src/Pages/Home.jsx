@@ -7,7 +7,7 @@ export default function Home() {
   }
   return (
     <>
-      <h3 style={{ homeStyle }}>Hello this is the home page</h3>
+      <h3 style={homeStyle}> Home page</h3>
     </>
   )
 }
