@@ -5,6 +5,7 @@
 
 ## Technologies
 * React
+* React Router v6
 
 ## To-do:
 * Adding Navbar pages
