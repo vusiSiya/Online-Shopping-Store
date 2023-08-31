@@ -1,9 +1,15 @@
 import React from 'react'
-import { Link } from "react-router-dom"
-import data from "../Data"
+import { Link, useLoaderData } from "react-router-dom"
+import { getBackgroundImg } from "../../api"
 
+export async function loader() {
+  const imgUrl = await getBackgroundImg(0);
+  console.log(`loader function ran`)
+  return imgUrl;
+}
 export default function About() {
-  const bgImgUrl = data.backgroundImgUrls[0]
+  const bgImgUrl = useLoaderData();
+  console.log(`component rendered`)
   const sectionStyle = {
     color: "black",
     textAlign: "center",
@@ -43,7 +49,7 @@ export default function About() {
           We have attires from a variety of South African cultures!
         </p>
         <Link
-          to="products"
+          to="/products"
           className="link-btn"
         >
           Have a look at our products
