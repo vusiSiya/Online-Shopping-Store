@@ -1,6 +1,10 @@
 import React from 'react'
 import {useParams} from "react-router-dom"
-import data from '../Data'
+import getProductsData from "../../api"
+
+export async function loader() {
+  return defer({ products: getProductsData() })
+}
 
 export default function ProductsList(props) {
 	const {productsList, setProductsList} = React.useState()

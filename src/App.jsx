@@ -11,19 +11,24 @@ import Home from "./Pages/Home"
 import About, { loader as aboutLoader } from "./Pages/About"
 import Products, { loader as productsLoader } from "./Pages/Products"
 import ProductDetail, { loader as productDetailLoader } from "./Pages/ProductDetail"
-import ProductsList from "./Pages/ProductsList"
+import ProductsList, { loader as productsListLoader } from "./Pages/ProductsList"
 import ResourceNotFound from "./Pages/ResourceNotFound"
 import ErrorElement from "./Components/ErrorElement"
 
 const router = createBrowserRouter(createRoutesFromElements(
-    <Route path="/"
+    <Route
+        path="/"
         element={<HomeLayout />}
     >
-        <Route index element={<Home />} />
+        <Route
+            index
+            element={<Home />}
+        />
         <Route
             path="about"
             element={<About />}
             loader={aboutLoader}
+            errorElement={<ErrorElement />}
         />
         <Route
             path="products"
@@ -35,6 +40,8 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route
                 path="on-cart"
                 element={<ProductsList />}
+                loader={productsListLoader}
+                errorElement={<ErrorElement />}
             />
             <Route
                 path=":id"

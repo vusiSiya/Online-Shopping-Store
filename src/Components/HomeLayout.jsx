@@ -4,12 +4,6 @@ import NavBar from '../Components/NavBar'
 import Footer from '../Components/Footer'
 import {useSearchParams} from "react-router-dom"
 export default function HomeLayout(){
-
-  const [count, setCount] = React.useState(0)
-  const [itemsBought, setItemsBought]= React.useState();
-  
-  const [searchParams, setSearchParams] = useSearchParams();
-  const categoryFilter = searchParams.get("category");
   
   function handleClick(e) {
     const {id} = e.target;
@@ -19,12 +13,10 @@ export default function HomeLayout(){
   return(
      <>
        <header>
-         <NavBar count={count} filter={categoryFilter}/>
+         <NavBar />
        </header>
        <main>
-          <Outlet 
-            context={[searchParams, setSearchParams]} 
-            filter={categoryFilter}/>
+          <Outlet />
       </main>
       <Footer/>
     </>

@@ -7,7 +7,7 @@ export default function Items(props) {
   return (
     <div id={product.id} className='product'>
       <Link
-        to={product.id}
+        to={`${product.id}`}
         className="product-link"
       >
         <img
