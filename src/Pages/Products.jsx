@@ -12,12 +12,14 @@ export async function loader() {
   return defer({ products: getProductsData() })
 }
 export default function Products() {
-  const dataPromise = useLoaderData();
 
+  const dataPromise = useLoaderData();
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryFilter = searchParams.get("category");
+ 
 
   function renderProducts(products) {
+    
     function getRandomProducts() {
       let newArray = []
       for (let i = 1; i <= 8; i++) {
@@ -25,11 +27,13 @@ export default function Products() {
         newArray.push(products[i * 2]);
       }
       return newArray;
-    };
+    }
+    
     const selectedProductsData = categoryFilter
       ? products.filter((item, i) => item.category === categoryFilter)
       : getRandomProducts();
 
+    
     const selectedProducts = selectedProductsData.map(product => {
       return <Items
         key={product?.id}
@@ -75,12 +79,11 @@ export default function Products() {
           </button>)
         }
       </section>
-      <Await
-        resolve={dataPromise.products}
-        fallback={<h2>Loading products...</h2>}
-      >
-        {(products) => renderProducts(products)}
-      </Await>
+      <React.Suspense fallback={<h2>Loading Products...</h2>}>
+        <Await resolve={dataPromise.products}>
+          {(products) => renderProducts(products)}
+        </Await>
+      </React.Suspense>
     </>
   )
 }

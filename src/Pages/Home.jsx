@@ -1,8 +1,9 @@
 import React from 'react'
 
 export default function Home() {
+    
+
   return (
-    <>
       <section style={{
         display: "grid",
         gridtemplateColumns: "repeat(8, 1fr)",
@@ -22,7 +23,7 @@ export default function Home() {
           opacity: "20%",}}
           >
           <h2 style={{
-            grid-column: "2/-2",
+            gridoColumn: "2/-2",
             gridRow: "2/auto",
             zIndex: 1,
             fontWeight: "normal",
@@ -59,8 +60,9 @@ export default function Home() {
               padding: ".5em",
               marginBottom: "1em"}
             }
-            >Get your best attire</button>
+            >Get your best attire
+          </button>
         </section>
-      </>
     )
-  }
+}
+  

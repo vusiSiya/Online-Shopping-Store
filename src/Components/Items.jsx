@@ -1,13 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Items(props) {
-
-  const { product } = props;
+export default function Items({product}) {
   return (
     <div id={product.id} className='product'>
       <Link
-        to={`${product.id}`}
+        to={`/${product.id}`}
         className="product-link"
       >
         <img
@@ -21,6 +19,5 @@ export default function Items(props) {
         </p>
       </Link>
     </div>
-
   )
 }

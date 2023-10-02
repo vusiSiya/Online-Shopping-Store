@@ -35,21 +35,18 @@ const router = createBrowserRouter(createRoutesFromElements(
             element={<Products />}
             loader={productsLoader}
             errorElement={<ErrorElement />}
-
-        >
-            <Route
-                path="on-cart"
-                element={<ProductsList />}
-                loader={productsListLoader}
-                errorElement={<ErrorElement />}
-            />
-            <Route
-                path=":id"
-                element={<ProductDetail />}
-                loader={productDetailLoader}
-                errorElement={<ErrorElement />}
-            />
-        </Route>
+        />
+        <Route
+            path="on-cart"
+            element={<ProductsList />}
+            errorElement={<ErrorElement />}
+        />
+        <Route
+            path="/products/:id"
+            element={<ProductDetail />}
+            loader={productDetailLoader}
+            errorElement={<ErrorElement />}
+        />
 
         <Route path="*" element={<ResourceNotFound />} />
     </Route>

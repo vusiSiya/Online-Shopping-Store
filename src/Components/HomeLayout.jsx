@@ -2,23 +2,39 @@ import React from "react"
 import  {Outlet}  from "react-router-dom"
 import NavBar from '../Components/NavBar'
 import Footer from '../Components/Footer'
-import {useSearchParams} from "react-router-dom"
+
+
+const CartContext = React.createContext();
+export {CartContext}
+
 export default function HomeLayout(){
   
-  function handleClick(e) {
-    const {id} = e.target;
-    setCount(prevCount => prevCount + 1)
-    //localStorage.setItem(`${data}`)
+  const [productsList, setProductsList] = React.useState([]); 
+
+  function addToCard(product){
+    setProductsList(prevProducts => [...prevProducts, product]);
   }
+
+  function removeProduct(_id) {
+    
+    if (id) {
+      const matchingProducts = productsList.filter(product => product.id === _id);
+      matchingProducts.pop(matchingProducts[0]);
+      
+      setProductsList(prevProducts => [...matchingProducts, ...prevProducts]);    
+    }
+  }
+
+  
   return(
-     <>
+    <CartContext.Provide value={{addToCard, removeProduct, productsList}}>
        <header>
-         <NavBar />
+         <NavBar productsList={productsList}/>
        </header>
        <main>
           <Outlet />
       </main>
       <Footer/>
-    </>
+    </CartContext.Provide>
   )
 }

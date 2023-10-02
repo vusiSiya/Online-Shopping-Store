@@ -4,12 +4,10 @@ import { getBackgroundImg } from "../../api"
 
 export async function loader() {
   const imgUrl = await getBackgroundImg(0);
-  console.log(`loader function ran`)
   return imgUrl;
 }
 export default function About() {
   const bgImgUrl = useLoaderData();
-  console.log(`component rendered`)
   const sectionStyle = {
     color: "black",
     textAlign: "center",
@@ -25,7 +23,7 @@ export default function About() {
     gridColumn: "1/-1",
     gridRow: "1/3",
     width: "100%",
-    height: "fit-content",
+    height: "max-content",
     opacity: "90%"
   }
 
