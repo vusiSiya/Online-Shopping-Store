@@ -21,9 +21,9 @@ export default function ErrorElement(){
   return (
     <section style={sectionStyle}>
       <h1>Oops! An error occured!</h1>
-      <pre>{error.message}</pre>
+      <pre>Error: {error.message}</pre>
       <h3>
-        Click the button to navigate to the {homeLink}
+        Navigate to the {homeLink}
       </h3>
     </section>
   )

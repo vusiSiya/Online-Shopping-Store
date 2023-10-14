@@ -1,40 +1,45 @@
 import React from "react"
-import  {Outlet}  from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import NavBar from '../Components/NavBar'
 import Footer from '../Components/Footer'
 
-
 const CartContext = React.createContext();
-export {CartContext}
+export { CartContext }
 
-export default function HomeLayout(){
+export default function HomeLayout() {
+
+  const [productsList, setProductsList] = React.useState([]);
+
   
-  const [productsList, setProductsList] = React.useState([]); 
-
-  function addToCard(product){
+  function addToCart(product) {  
     setProductsList(prevProducts => [...prevProducts, product]);
   }
 
   function removeProduct(_id) {
-    
-    if (id) {
-      const matchingProducts = productsList.filter(product => product.id === _id);
-      matchingProducts.pop(matchingProducts[0]);
+    if (_id) {
+      const nonMatchingProducts = productsList.filter(product =>{
+        return product.id != _id
+      })
       
-      setProductsList(prevProducts => [...matchingProducts, ...prevProducts]);    
+      const matchingProducts = productsList.filter(product =>{
+        return product.id === _id
+      });
+      
+      let firstElement = matchingProducts[0];
+      matchingProducts.pop(firstElement);
+      
+      setProductsList([...matchingProducts, ...nonMatchingProducts]);     
     }
   }
 
-  
-  return(
-    <CartContext.Provide value={{addToCard, removeProduct, productsList}}>
-       <header>
-         <NavBar productsList={productsList}/>
-       </header>
-       <main>
-          <Outlet />
+
+  return (
+    <CartContext.Provider value={{ addToCart, removeProduct, productsList }}>
+      <NavBar productsCount={productsList.length} />
+      <main>
+        <Outlet />
       </main>
-      <Footer/>
-    </CartContext.Provide>
+      <Footer />
+    </CartContext.Provider>
   )
 }
