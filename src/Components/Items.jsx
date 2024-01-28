@@ -11,8 +11,9 @@ export default function Items({product, linkState}) {
         state={linkState}
       >
         <img
-          alt={product.name}
-          src={product.img}
+          alt={product.name.toLowerCase()}
+          style={{fontStyle:"italic"}}
+          src={product.imgUrl}
           className='product--img'
         />
         <p

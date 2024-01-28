@@ -2,13 +2,25 @@ body{
   background-color: #ebdab6b3;
   margin: 0;
   height:100%;
+  font: 1.5rem Maven Pro;
 }
+
+html,body{
+	margin:0;
+}
+
 #root{
   display:grid;
-  grid-template-rows: 1fr 7fr auto;
+  grid-template-rows: 2fr auto 1fr;
+  grid-template-columns:repeat(5,1fr);
 }
+
+header{
+  grid-area: 1/1/2/-1;
+}
+
 main{
- font: 1.5rem Maven Pro;
+  grid-area: 2/1/-2/-1;
   height:100%;
 }
 
@@ -18,18 +30,16 @@ nav {
   display: flex;
   align-items:center;
   justify-content: space-between;
-  height: auto;
   border-radius: 0.2rem;
-  
 }
 
 a{
   text-decoration:none;
 }
+
 nav a{ 
-  font: 1.5em Maven Pro;
   color: white;
-  margin: 0px 2em;
+  margin: 0px .5em;
 
 }
 
@@ -41,7 +51,6 @@ nav a:hover{
 .site-logo{
   opacity: unset;
   color: white;
-  font-size: 1.5em;
   font-family: Helvetica;
   margin: auto;
   height: 6em;
@@ -56,7 +65,7 @@ nav a:hover{
 
 .link-btn{
     background-color: brown;
-    padding: .3em .5em;
+    padding: .35rem .55rem;
     width: max-content;
     margin: auto;
     color: white;
@@ -94,12 +103,12 @@ section > p{
 }
 
 section > a{
-  backgroundColor: brown;
+ /* background-color: brown;*/
   grid-area: 4/1 /5/-1; 
 }
 
 section.filters{
-  padding: 1.5em 2em;
+  padding: 1.8rem 2rem;
   display: flex;
   justify-content: end;
 }
@@ -119,8 +128,8 @@ section.filters{
 
 .display-products {
     display: flex;
-    gap: 2em;
-    padding: 2em;
+    gap: 1.25em;
+    padding: 1em;
     justify-content: center;
     align-items: center;
     margin: auto;
@@ -135,7 +144,7 @@ section.filters{
   padding: 0.4em;
   font-size: 1.3rem;
   border: none;
-  border-radius: .5em;
+  border-radius: .5rem;
   width: 12em;
   display: flex;
   flex-direction: column;
@@ -167,7 +176,6 @@ section.filters{
 .price, .product--name{
   margin: .8em auto;
   text-align: center;
-  font-weight: 300;
 }
 
 section.product.details {
@@ -177,44 +185,32 @@ section.product.details {
   color:black;
   border-radius:.5rem;
   box-shadow:none;
+  background-color: inherit;
 }
 .product.details:hover{
   box-shadow: none;
   text-shadow:none;
 }
-.product--name.cart {
-    grid-column: 2 / 3;
-    grid-row: 3/3;
-}
-.price.crt {
-    grid-column: 2 / 3;
-    grid-row: 4/4;
-    margin: 0;
-}
-
-.product.cart {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: .5em 1em;
-    grid-template-rows: repeat(6, max-content);
-    margin: auto;
-    width: 30em;
+.product.details > h3.items-count{
+  font: bold 0.5rem Helvetica;
+  color: white;
+  height: max-content;
+  margin:0;
 }
 
 .btn--cart{
   display: block;
-  background-color: #1c863f;
+  background-color: brown;
   width: 100%;
   color: white;
   border-radius: 0.5rem;
   border:0.5px solid white;
   padding: 0.3em;
   height: min-content;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
 }
 
 .btn--cart:hover {
-	text-shadow: 0 0 15px black;
 	border: none;
 	box-shadow: 0px 2px 10px 3px #111111ab;
 }
@@ -274,9 +270,9 @@ p#count {
 	border-radius: 100%;
 	width: 1.5em;
 	text-align: center;
-	padding: .2em;
+	padding: .25em;
 	color: white;
-	font: bold 1em Mavin Pro;
+	font: bold 1.5rem Mavin Pro;
 	background-color: #e97979;
 }
 
@@ -293,13 +289,16 @@ p#count {
 }
   
 footer{
+  grid-area: -2/1/-1/-1;
   text-align: center;
   color: black;
-  font: 1.5em Maven Pro;
-  border-radius: 0.4rem; 
+  font: 1.5rem Maven Pro;
+  border-radius: 0.4rem;
+  margin: .5em 0;
 }
 footer > p{
-  margin: 0;
+  margin: auto;
   padding: 1em;
   background-color: white;
 }
+

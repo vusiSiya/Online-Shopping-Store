@@ -9,33 +9,22 @@ export { CartContext }
 export default function HomeLayout() {
 
   const [productsList, setProductsList] = React.useState([]);
-
   
   function addToCart(product) {  
-    setProductsList(prevProducts => [...prevProducts, product]);
+    setProductsList(prevProducts => {
+      return [...prevProducts,{...product, count: 0} ];
+    });
   }
 
   function removeProduct(_id) {
-    if (_id) {
-      const nonMatchingProducts = productsList.filter(product =>{
-        return product.id != _id
-      })
-      
-      const matchingProducts = productsList.filter(product =>{
-        return product.id === _id
-      });
-      
-      let firstElement = matchingProducts[0];
-      matchingProducts.pop(firstElement);
-      
-      setProductsList([...matchingProducts, ...nonMatchingProducts]);     
-    }
+      setProductsList(prevList => prevList.filter(product =>product.id != _id));     
   }
 
-
   return (
-    <CartContext.Provider value={{ addToCart, removeProduct, productsList }}>
-      <NavBar productsCount={productsList.length} />
+    <CartContext.Provider value={{ addToCart, removeProduct, productsList, setProductsList }}>
+      <header>
+        <NavBar productsCount={productsList.length} />
+      </header>
       <main>
         <Outlet />
       </main>

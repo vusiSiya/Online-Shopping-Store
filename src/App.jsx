@@ -1,9 +1,9 @@
 import React from 'react'
 import {
-RouterProvider,
-createBrowserRouter,
-createRoutesFromElements,
-Route
+    RouterProvider,
+    createBrowserRouter,
+    createRoutesFromElements,
+    Route
 } from "react-router-dom"
 import './App.css'
 import HomeLayout from './Components/HomeLayout'
@@ -32,7 +32,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             errorElement={<ErrorElement />}
         />
         <Route
-            path="/products/:id"
+            path="products/:id"
             element={<ProductDetail />}
             loader={productDetailLoader}
             errorElement={<ErrorElement />}
