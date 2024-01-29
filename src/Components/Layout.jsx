@@ -6,7 +6,7 @@ import Footer from '../Components/Footer'
 const CartContext = React.createContext();
 export { CartContext }
 
-export default function HomeLayout() {
+export default function Layout() {
 
   const [productsList, setProductsList] = React.useState([]);
   
@@ -22,13 +22,15 @@ export default function HomeLayout() {
 
   return (
     <CartContext.Provider value={{ addToCart, removeProduct, productsList, setProductsList }}>
-      <header>
-        <NavBar productsCount={productsList.length} />
-      </header>
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
+      <div className="layout-container">
+        <header>
+          <NavBar productsCount={productsList.length} />
+        </header>
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </CartContext.Provider>
   )
 }

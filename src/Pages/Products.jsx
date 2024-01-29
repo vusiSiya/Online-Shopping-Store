@@ -55,8 +55,7 @@ export default function Products() {
 			</React.Suspense>
 		</>
 	)
-
-		
+	
 	function renderProducts(products){				
 		return (
 			<section className="display-products">

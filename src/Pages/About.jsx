@@ -36,33 +36,18 @@ export default function About() {
     <React.Suspense fallback={<h2>Loading...</h2>}>
       <section style={sectionStyle}>
         <Await resolve={imgUrlPromise.imgUrl}>
-          {(imgUrl) => {
-            return (
+          {(imgUrl) =>(
               <>
-                <img
-                  src={imgUrl}
-                  alt="BaSotho traditional hat"
-                  style={imgStyle}
-                />
+                <img src={`/${imgUrl}`} alt="BaSotho traditional hat" style={imgStyle}/>
                 <div>
-                  <h2>
-                    Looking for traditional South African Clothing ?
-                  </h2>
+                  <h2>Looking for traditional South African Clothing ?</h2>
                   <h3>You've come to the right place!</h3>
                 </div>
-              </>
-            )
-          }}
+              </>)
+          }
         </Await>
-        <p>
-          We have attires from a variety of South African cultures!!
-        </p>
-        <Link
-          to="/products"
-          className="link-btn"
-        >
-          Have a look at our products
-        </Link>
+        <p>We have attires from a variety of South African cultures!!</p>
+        <Link to="/products" className="link-btn">Have a look at our products</Link>
       </section>
     </React.Suspense>
   )
