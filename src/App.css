@@ -272,7 +272,7 @@ div.selected {
 	gap: 1em;
 }
 
-p#count {
+.count {
 	border: none;
 	border-radius: 100%;
 	width: 1.5em;

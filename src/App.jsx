@@ -11,7 +11,7 @@ import Home from "./Pages/Home"
 import About, { loader as aboutLoader } from "./Pages/About"
 import Products, { loader as productsLoader } from "./Pages/Products"
 import ProductDetail,{loader as productDetailLoader} from "./Pages/ProductDetail"
-import ProductsList from "./Pages/ProductsList"
+import ProductsList,{loader as productsListLoader} from "./Pages/ProductsList"
 import ResourceNotFound from "./Pages/ResourceNotFound"
 import ErrorElement from "./Components/ErrorElement"
 
@@ -40,6 +40,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route
             path="on-cart"
             element={<ProductsList />}
+            loader={productsListLoader}
         />
         <Route path="*" element={<ResourceNotFound />} />
     </Route>

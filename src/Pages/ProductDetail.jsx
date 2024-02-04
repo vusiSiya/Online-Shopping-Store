@@ -16,13 +16,21 @@ export async function loader({ params }) {
 export default function ProductDetail() {
 
   const dataPromise = useLoaderData();
-  const { addToCart } = React.useContext(CartContext);
-  
+  const [product, setProduct] = React.useState(null)
+  //const { addToCart } = React.useContext(CartContext);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.state.search);
   const filter = searchParams.get("category");
+
+  function handleClick(product) {  
+    //const addedItem = data.products.find(product=>product.id === getItemId(event));
+    //addedItem.count++;
+    //setProduct(prevProduct=>({...prevProduct,count:prevProduct.count + 1}))
+    product.count +=1;
+  }
   
   function renderProductDetail(product) {
+    //setProduct(...product)
     return (
       <>
         <section className='product details'>
@@ -34,7 +42,12 @@ export default function ProductDetail() {
             <span>&larr;</span> Back to {filter ? ` the ${filter} category` : " all products"}
           </Link>
           <div className="selected-product" >
-            <img src={`/${product.imgUrl}`} alt="product.name"className='product--img' style={{boxShadow: "0px 0px 10px 0px grey;", borderRadius: ".5rem", height:"30rem" }}/>
+            <img
+              src={`/${product.imgUrl}`}
+              alt="product.name"
+              className='product--img'
+              style={{boxShadow: "0px 0px 10px 0px grey", borderRadius: ".5rem", height:"30rem" }}
+            />
             <div className="content" style={{ color: "black" }}>
               <p className='product--name' style={{ fontSize: "2.1rem"}}>
                 {product.name}
@@ -42,7 +55,7 @@ export default function ProductDetail() {
               <p className='price' style={{ fontSize: "1.8rem",margin:"0 auto .8em"}}>
                 Price: R {product.price}
               </p>
-              <button className='btn--cart' onClick={() => addToCart(product)}>
+              <button className='btn--cart' id={product.id} onClick={() => handleClick(product)}>
                 Add to Cart
               </button>
             </div>
@@ -50,7 +63,6 @@ export default function ProductDetail() {
         </section>
       </>
     )
-
   }
 
   return (
