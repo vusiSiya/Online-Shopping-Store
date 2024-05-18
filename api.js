@@ -1,5 +1,5 @@
 import React from "react"
-import data from "./src/Data"
+import data from "./src/data"
 
 export default async function getProductsData(productId=0) {
 	const {products} = data;
