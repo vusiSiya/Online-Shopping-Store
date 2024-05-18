@@ -44,13 +44,13 @@ export default function ProductsList() {
 						<div className="content">
 							<p 
 								className="product--name" 
-								style={{textAlign: "start",margin: "0",fontSize: "2rem"}}
+								style={{textAlign: "start", margin: "0", fontSize: "2rem"}}
 							>  
 								{product.name}
 							</p>
 							<p
 								className="price"
-								style={{ textAlign: "start", margin: "0",fontSize: "2rem" }}
+								style={{ textAlign: "start", margin: "0", fontSize: "2rem" }}
 							>
 								R {product.price}
 							</p>
@@ -61,7 +61,9 @@ export default function ProductsList() {
 									type="number" 
 									value={product.count}
 								/> 
-								<button className="btn--cart" onClick={(e)=>products.find(item => item.id ===e.target.id).count = 0}>
+								<button
+									className="btn--cart"
+									onClick={(e)=>products.find(item => item.id ===e.target.id).count = 0}>
 									Remove
 								</button>
 							</div>

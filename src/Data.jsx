@@ -1,100 +1,102 @@
 
+
+const src = "https://github.com/vusiSiya/Online-Shopping-Store/blob/main/src/Images/"
 export default {
-  backgroundImgUrls:["src/Images/Miscelleneous/basotho-khaebana.png"],
+  backgroundImgUrls:[src + "Miscelleneous/basotho-khaebana.png"],
   products: [{
     id: 1,
-    imgUrl: "src/Images/Watches/Heuer-SilverSnoe.jpg",
+    imgUrl: src + "Watches/Heuer-SilverSnoe.jpg",
     name: "Heuer Silver Snoe",
     price: 6000,
     count:0,
     category: "watches"
   }, {
     id: 2,
-    imgUrl: "src/Images/Watches/omega-automatic-seamaster.jpg",
+    imgUrl: src + "Watches/omega-automatic-seamaster.jpg",
     name: "Omega Automatic",
     price: 6000,
     count:0,
     category: "watches"
   }, { 
     id: 3,
-    imgUrl: "src/Images/Watches/omega-de-ville-watch.jpg",
+    imgUrl: src + "Watches/omega-de-ville-watch.jpg",
     name: "Omega De Ville",
     price: 6000,
     count:0,
     category: "watches"
   }, {
     id: 4,
-    imgUrl: "src/Images/Watches/schawffhausen-watch.jpg",
+    imgUrl: src + "Watches/schawffhausen-watch.jpg",
     name: "IWC SCHAWFFHUSEN",
     price: 6000,
     count:0,
     category: "watches"
   }, {
     id: 5,
-    imgUrl: "src/Images/Men/AmaXhosa/the-xhosa-man-in-blue-and-white.png",
+    imgUrl: src + "Men/AmaXhosa/the-xhosa-man-in-blue-and-white.png",
     name: "Xhosa Attire",
     price: 15000,
     count:0,
     category: "men"
   }, {
     id: 6,
-    imgUrl: "src/Images/Men/EmaSwati/swati-man-at-mountain.png",
+    imgUrl: src + "Men/EmaSwati/swati-man-at-mountain.png",
     name: "Swati Attire",
     price: 15000,
     count:0,
     category: "men"
   }, {
     id: 7,
-    imgUrl: 'src/Images/Men/EmaSwati/swati-man-in-traditional-attire.jpg',
+    imgUrl: src + 'Men/EmaSwati/swati-man-in-traditional-attire.jpg',
     name: "Swati Attire",
     price: 15000,
     count:0,
     category: "men"
   }, {
     id: 8,
-    imgUrl: "src/Images/Men/BaSotho/sotho-guy-at-entrande.png",
+    imgUrl: src + "Men/BaSotho/sotho-guy-at-entrande.png",
     name: "Morden Sotho Attire",
     price: 6000,
     count:0,
     category: "men"
   }, {
     id: 9,
-    imgUrl: "src/Images/Men/BaSotho/sotho-man-in-sotho-blanket.png",
+    imgUrl: src + "Men/BaSotho/sotho-man-in-sotho-blanket.png",
     name: "Sotho Blanket",
     price: 1200,
     count:0,
     category: "men"
   }, {
     id: 10,
-    imgUrl: "src/Images/Men/AmaXhosa/xhosa-man-in-white.png",
+    imgUrl: src + "Men/AmaXhosa/xhosa-man-in-white.png",
     name: "Xhosa Attire",
     price: 15000,
     count:0,
     category: "men"
   }, {
     id: 11,
-    imgUrl: "src/Images/Men/AmaXhosa/xhosa-guy-in-white.jpg",
+    imgUrl: src + "Men/AmaXhosa/xhosa-guy-in-white.jpg",
     name: "Xhosa Attire",
     price: 15000,
     count:0,
     category: "men"
   }, {
     id: 12,
-    imgUrl: "src/Images/Women/Basotho/woman-blanket-jacket.png",
+    imgUrl: src + "Women/Basotho/woman-blanket-jacket.png",
     name: "Sotho blacket",
     price: 15000,
     count:0,
     category: "women"
   }, {
     id: 13,
-    imgUrl: "src/Images/Women/EmaSwati/swati-woman-in-blue-dress.png",
+    imgUrl: src + "Women/EmaSwati/swati-woman-in-blue-dress.png",
     name: "Swati traditional dress",
     price: 15000,
     count:0,
     category: "women"
   }, {
     id: 14,
-    imgUrl: "src/Images/Women/Basotho/sotho-woman-in-seshweshwe.png",
+    imgUrl: src + "Women/Basotho/sotho-woman-in-seshweshwe.png",
     name: "Seshweshwe dress",
     price: 15000,
     count:0,
