@@ -47,7 +47,7 @@ export default {
     category: "men"
   }, {
     id: 7,
-    imgUrl: src + 'Men/EmaSwati/swati-man-in-traditional-attire.jpg',
+    imgUrl: src + '/Men/EmaSwati/swati-man-in-traditional-attire.jpg',
     name: "Swati Attire",
     price: 15000,
     count:0,
