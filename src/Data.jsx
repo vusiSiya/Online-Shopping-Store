@@ -2,7 +2,10 @@
 
 const src = "https://raw.githubusercontent.com/vusiSiya/Online-Shopping-Store/main/src/Images"
 export default {
-  backgroundImgUrls:[src + "/Miscelleneous/basotho-khaebana.png"],
+  backgroundImgUrls:[
+    `${src}/background/site-logo-2.png`,
+    `${src}/Miscelleneous/basotho-khaebana.png`
+  ],
   products: [{
     id: 1,
     imgUrl: src + "/Watches/Heuer-SilverSnoe.jpg",

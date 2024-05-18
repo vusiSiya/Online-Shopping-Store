@@ -1,7 +1,6 @@
 import React from "react"
 import data from "./src/Data";	
 
-console.log(data)
 
 export default async function getProductsData(productId=0) {
 	const {products} = data;
@@ -13,7 +12,7 @@ export async function getItemsOnCart(){
 	return itemsOnCart || 0;
 }
 
-export async function getBackgroundImg(index) {
+export function getBackgroundImg(index) {
 	const {backgroundImgUrls} = data
 	return backgroundImgUrls[index]
 }

@@ -8,7 +8,7 @@ import {
 import { getBackgroundImg } from "../../api"
 
 export async function loader() {
-  return defer({ imgUrl: getBackgroundImg(0) })
+  return defer({ imgUrl: getBackgroundImg(1) })
 }
 export default function About() {
 
@@ -38,7 +38,7 @@ export default function About() {
         <Await resolve={imgUrlPromise.imgUrl}>
           {(imgUrl) =>(
               <>
-                <img src={`/${imgUrl}`} alt="BaSotho traditional hat" style={imgStyle}/>
+                <img src={imgUrl} alt="BaSotho traditional hat" style={imgStyle}/>
                 <div>
                   <h2>Looking for traditional South African Clothing ?</h2>
                   <h3>You've come to the right place!</h3>

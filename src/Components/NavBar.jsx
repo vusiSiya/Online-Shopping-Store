@@ -1,11 +1,9 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { FaCartShopping } from "react-icons/fa6"
-import {getItemsOnCart} from '../../api'
+import {getItemsOnCart,getBackgroundImg} from '../../api'
 
 export default function NavBar({children}) {
-
-
   const [count, setCount] = React.useState(0)
 
  React.useEffect(()=>{
@@ -22,7 +20,7 @@ export default function NavBar({children}) {
     <nav>
       <div className="container">
         <img
-          src="/src/Images/background/site-logo-2.png"
+          src={getBackgroundImg(0)}
           className="site-logo" />
       </div>
 
