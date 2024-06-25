@@ -2,12 +2,7 @@
 
 //const src = "https://raw.githubusercontent.com/vusiSiya/Online-Shopping-Store/main/src/Images"
 const src = "src/Images"
-export default {
-  backgroundImgUrls:[
-    `${src}/background/site-logo-2.png`,
-    `${src}/Miscelleneous/basotho-khaebana.png`
-  ],
-  products: [{
+const products = [{
     id: 1,
     imgUrl: src + "/Watches/Heuer-SilverSnoe.jpg",
     name: "Heuer Silver Snoe",
@@ -162,4 +157,5 @@ export default {
     count:0,
     category: "women"
   }]
-}
+
+export const jsonData = JSON.stringify(products)

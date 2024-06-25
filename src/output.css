@@ -922,17 +922,17 @@ div.selected {
 }
 
 footer{
-  grid-area: -2/1/-1/-1;
-  text-align: center;
-  color: black;
-  font: 1.5rem Maven Pro;
-  border-radius: 0.4rem;
-  margin: .5em 0;
-}
+  display: flex;
+  position:fixed;
+  gap:.5em;
+  justify-content: center;
 
-footer > p{
-  margin: auto;
-  padding: 1em;
-  background-color: white;
+  color: black;
+  margin: 1em 0;
+  padding:.5em;
+  border-radius: 0.4rem;
+  font-size: medium;
+  text-align: center;
+  
 }
 

@@ -22,7 +22,7 @@ export default function ErrorElement(){
   return (
     <section style={sectionStyle}>
       <h1>Oops! An error occured!</h1>
-      <pre>Error: {error.message}</pre>
+      <pre>{error.message}</pre>
       <h3>
         Navigate to the {homeLink}
       </h3>

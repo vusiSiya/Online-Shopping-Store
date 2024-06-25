@@ -1,44 +1,84 @@
 import React from "react"
-import { Outlet } from "react-router-dom"
-import NavBar from '../Components/NavBar'
-import Footer from '../Components/Footer'
-import {getItemsOnCart} from '../../api'
+import { Outlet, NavLink, Link  } from "react-router-dom"
 
-const CartContext = React.createContext();
-export { CartContext }
+import { FaCartShopping, FaGithub  } from "react-icons/fa6"
+import {getTotalCount} from '../../api'
+
+import siteLogo from "../Images/background/site_logo.png";
 
 export default function Layout() {
 
-  //const [productsList, setProductsList] = React.useState([]);
-  
-  const getItemId =(event)=> Number(event.target.id);
-  
-  function addToCart(event) {  
-    const addedItem = data.products.find(product=>product.id === getItemId(event));
-    addedItem.count++;
-    //setProductsList([addedItem, ...prevProducts]);
-  }
+  const [count, setCount] = React.useState(0)
+
+  React.useEffect(()=>{
+    getTotalCount()
+    .then(data => setCount(data))
+  }, [count])
+
 
   return (
-    <CartContext.Provider value={ addToCart}>
-      <div className="layout-container">
+      <>
         <header>
-          <NavBar>
-            {()=>{
-              let count = 0
-              async function getCount(){
-                const items = await getItemsOnCart();
-                return items.length 
-              }
-              return getCount() || 0
-            }}
-          </NavBar>
+          <nav>
+            <div style={{width:"8rem"}}>
+              <img src={siteLogo} className="site-logo" />
+            </div>
+
+            <NavLink 
+              to="/" 
+              style={({ isActive }) => isActive && activeStyle || null}>
+              Home
+            </NavLink>
+
+            <NavLink 
+              to="about" 
+              style={({ isActive }) => isActive && activeStyle || null}>
+              About
+            </NavLink>
+
+            <NavLink 
+              to="products" 
+              style={({ isActive }) => isActive && activeStyle || null}>
+              Products
+            </NavLink>
+            
+            <div 
+              className="div-cart-icon" 
+              style={{ display: "flex", alignItems:"baseline"}}>
+              <Link
+                to="/on-cart"
+                id="on-cart"
+                style={{font: "bold 0.5rem Helvetica",color: "white",height: "max-content",margin:"0"}}
+                className="items-count"
+              >
+                <FaCartShopping style={cartStyle} />
+              </Link>
+              <span className="count"> {count}</span>
+
+            </div>
+          </nav>
         </header>
         <main>
+
           <Outlet />
+
         </main>
-        <Footer />
-      </div>
-    </CartContext.Provider>
+        <footer style={{position:"fixed", bottom:"0", right:"0", left:"0", zIndex:"-1"}} className="flex"> 
+          <p>© {new Date().getFullYear()} Siyabonga Mahlalela</p>
+          <FaGithub />
+        </footer>
+      </>
   )
+}
+
+const activeStyle = {
+  fontWeight: "bold",
+  textDecoration: "underline"
+}
+const cartStyle={
+  color: "white",
+  fontSize: "1.7rem",
+  fontWeight: "bold",
+  textDecoration: "none",
+  padding: "0px 5px"
 }

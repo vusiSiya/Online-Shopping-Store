@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import site_logo from "../Images/background/site_logo.png"
 export default function Home() {
   return (
     <>
@@ -17,7 +18,7 @@ export default function Home() {
         }}
       >
         <img
-          src="src/Images/background/site-logo-2.png"
+          src={site_logo}
           alt="site logo" className="home-bg-img"
           style={{
             position: "relative",

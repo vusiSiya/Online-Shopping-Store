@@ -9,7 +9,7 @@ import './App.css'
 import './output.css'
 import Layout from './Components/Layout'
 import Home from "./Pages/Home"
-import About, { loader as aboutLoader } from "./Pages/About"
+import About from "./Pages/About"
 import Products, { loader as productsLoader } from "./Pages/Products"
 import ProductDetail,{loader as productDetailLoader} from "./Pages/ProductDetail"
 import ProductsList,{loader as productsListLoader} from "./Pages/ProductsList"
@@ -25,7 +25,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route
             path="about"
             element={<About />}
-            loader={aboutLoader}
+            //loader={aboutLoader}
         />
         <Route
             path="products"

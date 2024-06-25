@@ -15,6 +15,7 @@ html,body{
 	margin:0;
 }
 
+
 .layout-container{
 	display:grid;
 	grid-template-rows: 2fr auto 1fr;
@@ -302,7 +303,6 @@ div.selected {
 }
 	
 footer{
-	grid-area: -2/1/-1/-1;
 	text-align: center;
 	color: black;
 	font: 1.5rem Maven Pro;
@@ -310,8 +310,6 @@ footer{
 	margin: .5em 0;
 }
 footer > p{
-	margin: auto;
-	padding: 1em;
-	background-color: white;
+	text-align: center;
 }
 

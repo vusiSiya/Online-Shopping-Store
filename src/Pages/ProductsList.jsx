@@ -1,37 +1,33 @@
 import React from 'react'
-import { CartContext } from "../Components/Layout"
-import {getItemsOnCart} from "../../api"
 import {useLoaderData} from "react-router-dom"
+import { FaTrashCan } from "react-icons/fa6"
+import {getCartItems, updateCount} from "../../api"
+
 
 export async function loader(){
-	return getItemsOnCart();
+	const cartItems = await getCartItems()
+	return cartItems
 }
 
 export default function ProductsList() {
-	//const { productsList, setProductsList, removeProduct } = React.useContext(CartContext);
 
-	const products = useLoaderData();
+	const products = useLoaderData()
 	
 	const containerStyle = {
 		display: products.length ? "flex" : "none",
 		alignItems: "flex-end",
 		flexWrap: "nowrap",
 		marginBottom: "0px"
-	};
-
-	function handleChange(event) {
-		const {value, id} = event;
-		const item = products.find(item => item.id === Number(id));
-		item.count = Number(value);
-		
-		/*setProductsList(prevList => prevList.map(product =>{ 
-			if (product.id === id) {
-				return {...product, count: value};
-			}
-			return product;
-		}));  
-		*/
 	}
+
+	function handleChange({value, id}) {
+		const item = products.find(item => item.id === Number(id))
+		item.count = Number(value)
+		updateCount(id, item.count)
+		.then(()=>console.log("updated"))
+		.catch(err =>console.error(err))
+	}
+
 
 	return (
 		<>
@@ -56,7 +52,7 @@ export default function ProductsList() {
 							</p>
 							<div>
 								<input 
-									onChange={(e)=> handleChange(e)} 
+									onChange={async(e)=> await handleChange(e)} 
 									id={product.id} 
 									type="number" 
 									value={product.count}
@@ -66,6 +62,7 @@ export default function ProductsList() {
 									onClick={(e)=>products.find(item => item.id ===e.target.id).count = 0}>
 									Remove
 								</button>
+								<FaTrashCan onClick={()=>console.log("del")}/>
 							</div>
 						</div>
 					</div>
