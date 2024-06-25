@@ -6,6 +6,7 @@ import {
     Route
 } from "react-router-dom"
 import './App.css'
+import './output.css'
 import Layout from './Components/Layout'
 import Home from "./Pages/Home"
 import About, { loader as aboutLoader } from "./Pages/About"
@@ -14,6 +15,7 @@ import ProductDetail,{loader as productDetailLoader} from "./Pages/ProductDetail
 import ProductsList,{loader as productsListLoader} from "./Pages/ProductsList"
 import ResourceNotFound from "./Pages/ResourceNotFound"
 import ErrorElement from "./Components/ErrorElement"
+
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/"

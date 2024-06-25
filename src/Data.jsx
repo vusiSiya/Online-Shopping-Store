@@ -1,6 +1,7 @@
 
 
-const src = "https://raw.githubusercontent.com/vusiSiya/Online-Shopping-Store/main/src/Images"
+//const src = "https://raw.githubusercontent.com/vusiSiya/Online-Shopping-Store/main/src/Images"
+const src = "src/Images"
 export default {
   backgroundImgUrls:[
     `${src}/background/site-logo-2.png`,
