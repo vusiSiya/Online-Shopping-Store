@@ -27,18 +27,17 @@ export default function About() {
   }
 
   return (
-      <section style={sectionStyle}>
-        <React.Suspense fallback={<FaSpinner/>}>
+      <React.Suspense fallback={<FaSpinner/>}>
+        <section style={sectionStyle}>
           <img src={khaebana} alt="khaebana" style={imgStyle}/>
-        </React.Suspense>
           <div>
             <h2>Looking for traditional South African Clothing ?</h2>
             <h3>You've come to the right place!</h3>
           </div>
-        
-        <p>We have attires from a variety of South African cultures!!</p>
-        <Link to="/products" className="link-btn">Have a look at our products</Link>
-      </section>
+          <p>We have attires from a variety of South African cultures!!</p>
+          <Link to="/products" className="link-btn">Have a look at our products</Link>
+        </section>
+      </React.Suspense>
   )
 
 }

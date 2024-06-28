@@ -53,7 +53,7 @@ export default function Layout() {
               >
                 <FaCartShopping style={cartStyle} />
               </Link>
-              <span className="count"> {count}</span>
+              <span className="count">{count || 0}</span>
 
             </div>
           </nav>
@@ -63,7 +63,7 @@ export default function Layout() {
           <Outlet />
 
         </main>
-        <footer style={{position:"fixed", bottom:"0", right:"0", left:"0", zIndex:"-1"}} className="flex"> 
+        <footer style={{position:"fixed", bottom:"0", right:"0", left:"0", zIndex:"-1"}}> 
           <p>© {new Date().getFullYear()} Siyabonga Mahlalela</p>
           <FaGithub />
         </footer>

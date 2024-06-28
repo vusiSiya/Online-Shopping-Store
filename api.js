@@ -1,11 +1,14 @@
 import React from "react"
 import {jsonData} from "./src/Data.jsx"
 
-localStorage.setItem("products",jsonData)
-const CART_ITEMS_KEY = Object.freeze("cart-items");
-const ALL_PRODUCTS_KEY = Object.freeze("products");
 
-//  --reading--  //
+const CART_ITEMS_KEY = Object.freeze("cart-items")
+const ALL_PRODUCTS_KEY = Object.freeze("products")
+localStorage.setItem(ALL_PRODUCTS_KEY, jsonData)
+localStorage.setItem(CART_ITEMS_KEY,[])
+
+
+//  --reading data--  //
 
 export default async function getProducts() {
 	const products = JSON.parse(localStorage.getItem(ALL_PRODUCTS_KEY))
@@ -19,13 +22,20 @@ export async function getSingleProduct(id){
 }
 
 export async function getCartItems(){
-	const snapShot = localStorage.getItem(CART_ITEMS_KEY)
-	return snapShot || null
+	const json = localStorage.getItem(CART_ITEMS_KEY) || null
+
+	if(json){
+		const items = JSON.parse(json)
+		const newArray =  getNonRepeatingItems(items)
+		return newArray;
+	}
+	return null
 }
 
 export async function getTotalCount() {
 	const cartItems = await getCartItems()
-	return cartItems?.reduce((sum, item)=> sum + item.count) || 0
+	const count = cartItems?.reduce((sum, item)=> sum + item.count)
+	return count || 0
 }
 
 export async function getTotalCost() {
@@ -33,29 +43,47 @@ export async function getTotalCost() {
 	const totalCost = cartItems.reduce((sum, item)=>{
 		return sum + item.price * item.count 
 	}, 0)
-
 	return totalCost || 0
 }
 
 
-//  --writing--  //
+//  ---writing to data---  //
 
 export async function addToCart(id) {
-	const cartItems = await getCartItems()
-	const currentItem = await getSingleProduct(id)
-	cartItems.push({
+	const cartItems = await getCartItems() || []
+	const currentItem =  await getSingleProduct(id)
+	cartItems.unshift({
 		...currentItem,
-		count: 1
+		 count: 1
 	})
-	localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(cartItems))
+	const newArray = getNonRepeatingItems(cartItems)
+	localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newArray))
 }
 
 export async function updateCount(id, count=0){
-	const cartItems = await getCartItems();
-	const currentItem = await getSingleProduct(id)
-	cartItems.push({
-		...currentItem,
-		count: Number(count)
+	const cartItems = await getCartItems()
+	const newArray = cartItems.map(item =>{
+		if(item.id === Number(id)){
+			item.count = Number(count)
+		}
+		return item
 	})
-	localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(cartItems))
+
+	localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newArray))
 }
+
+export async function removeProduct(id) {
+	const cartItems = await getCartItems()
+	const newArray = cartItems.filter(item => item.id != Number(id))
+	localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newArray))
+	return newArray
+} 
+
+function getNonRepeatingItems(array=[]) {
+	return array.map((item)=>{
+		const matchingItems = array.filter($=> $.id === item?.id)
+		const isNotRepeating = (matchingItems.length === 1)
+		return isNotRepeating && item || null
+	}).filter(item=>item)
+}
+

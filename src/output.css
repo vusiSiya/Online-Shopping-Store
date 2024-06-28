@@ -922,11 +922,10 @@ div.selected {
 }
 
 footer{
-  display: flex;
+  display:none;
   position:fixed;
   gap:.5em;
   justify-content: center;
-
   color: black;
   margin: 1em 0;
   padding:.5em;
@@ -935,4 +934,8 @@ footer{
   text-align: center;
   
 }
+footer:hover{
+  display:flex
+}
+
 
