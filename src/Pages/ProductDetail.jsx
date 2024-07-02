@@ -8,6 +8,7 @@ import {
 } from "react-router-dom"
 import getProducts, { updateCount, addToCart, getSingleProduct} from '../../api'
 import { FaSpinner, FaTrash } from 'react-icons/fa6'
+import UpdateCartButtons from '../Components/updateCartButtons'
 
 export async function loader({ params }) {
 	const product = await getSingleProduct(params.id)
@@ -36,7 +37,7 @@ export default function ProductDetail() {
 			<React.Suspense fallback={<FaSpinner/>}>
 				<div className="selected-product" >
 					<img
-						src={"/"+product.imgUrl}
+						src={`/${product.imgUrl}`}
 						alt={product.name}
 						className='product--img'
 						style={{boxShadow: "0px 0px 10px 0px grey", borderRadius: ".5rem" }}
@@ -48,27 +49,7 @@ export default function ProductDetail() {
 						<p className='price' style={{ fontSize: "1.8rem",margin:"0 auto .8em"}}>
 							Price: R {product.price}
 						</p>
-						{(count < 3) ? ( 
-							<button 
-								className='btn--cart' 
-								id={product.id} 
-								onClick={async()=>{
-									await addToCart(product.id)}
-								}
-							>
-								Add to Cart
-							</button>
-							):  
-							<div className='flex'>
-								<input 
-									type='number'
-									id={product.id}
-									value={count}
-									onChange={(event)=>handleChange(event)}
-								/>
-								<FaTrash />
-							</div>	 
-						}
+					 	<UpdateCartButtons product={product}  count={count} setCount={setCount} />
 					</div>
 				</div>
 			</React.Suspense>

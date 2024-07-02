@@ -8,7 +8,7 @@ import siteLogo from "../Images/background/site_logo.png";
 
 export default function Layout() {
 
-  const [count, setCount] = React.useState(0)
+  const [count, setCount] = React.useState(null)
 
   React.useEffect(()=>{
     getTotalCount()

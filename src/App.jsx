@@ -42,7 +42,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route
             path="on-cart"
             element={<ProductsList />}
-            loader={productsListLoader}
+            //loader={productsListLoader}
         />
         <Route path="*" element={<ResourceNotFound />} />
     </Route>

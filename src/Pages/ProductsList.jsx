@@ -3,7 +3,6 @@ import {useLoaderData} from "react-router-dom"
 import { FaTrashCan } from "react-icons/fa6"
 import {getCartItems, updateCount, removeProduct} from "../../api"
 
-
 export async function loader(){
 	const cartItems = await getCartItems()
 	return cartItems || null
@@ -11,9 +10,13 @@ export async function loader(){
 
 export default function ProductsList() {
 
-	const products = useLoaderData()
-	const [data, setData] = React.useState(products || [])
-
+	const [products, setProducts] = React.useState([]) // state that updates
+	
+	React.useEffect(()=>{
+		getCartItems()
+		.then(data => setProducts(data))
+		.catch(err => console.error(err))
+	}, [products])
 
 	const containerStyle = {
 		display: products && "flex" || "none",
@@ -33,8 +36,8 @@ export default function ProductsList() {
 				}
 				return item
 			})
-			setData(newArray)
-			console.log(products, data)
+			setProducts(newArray)
+			console.log(products, products)
 		})
 		.catch(err =>console.error(err))
 	}
@@ -42,18 +45,17 @@ export default function ProductsList() {
 	function handleClick({id}) {
 		removeProduct(id)
 		.then((items)=>{
-			setData(items)
-			console.log()
+			setProducts(items)
 		})
 		.catch(err =>console.error(err))
 	}
 
 	return (
 		<>
-			{data.length === 0 ?
+			{(products === null) ?
 				<h1 style={{ margin: "5em auto",textAlign:"center" }}>Your cart is empty!</h1>
 				:
-				data.map((product) => product.count && (
+				products.map((product) => product.count && (
 					<div key={product.id} className="display-products" style={containerStyle}>
 						<img src={product.imgUrl} alt={product.name} className="product--img"/>
 						<div className="content">
