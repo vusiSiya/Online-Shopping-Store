@@ -1,23 +1,13 @@
 import React from "react"
-import { Outlet, NavLink, Link  } from "react-router-dom"
+import { Outlet, NavLink, Link, useLoaderData  } from "react-router-dom"
 
 import { FaCartShopping, FaGithub  } from "react-icons/fa6"
 import {getTotalCount} from '../../api'
-
 import siteLogo from "../Images/background/site_logo.png";
 
 export default function Layout() {
 
   const [count, setCount] = React.useState(0)
-
-  React.useEffect(()=>{
-    getTotalCount()
-    .then(data =>{
-      console.log(data)
-      setCount(data)
-    })
-  }, [count])
-
 
   return (
       <>
@@ -56,14 +46,14 @@ export default function Layout() {
               >
                 <FaCartShopping style={cartStyle} />
               </Link>
-              <span className="count">{count}</span>
+              <span className="count">{count || 0}</span>
 
             </div>
           </nav>
         </header>
         <main>
 
-          <Outlet />
+          <Outlet context={[count, setCount]}/>
 
         </main>
         <footer style={{position:"fixed", bottom:"0", right:"0", left:"0", zIndex:"-1"}}> 

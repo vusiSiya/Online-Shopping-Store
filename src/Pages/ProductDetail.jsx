@@ -19,7 +19,7 @@ export async function loader({ params }) {
 export default function ProductDetail() {
 
 	const product = useLoaderData();
-	const [count, setCount] = React.useState(product.count || 0)
+	const [itemCount, setItemCount] = React.useState(product.count || 0)
 	const location = useLocation();
 	const searchParams = new URLSearchParams(location.state.search);
 	const filter = searchParams.get("category");
@@ -46,10 +46,10 @@ export default function ProductDetail() {
 						<p className='product--name' style={{ fontSize: "2.1rem"}}>
 							{product.name}
 						</p>
-						<p className='price' style={{ fontSize: "1.8rem",margin:"0 auto .8em"}}>
+						<p className='price' style={{ fontSize: "1.8rem", margin:"0 auto .8em"}}>
 							Price: R {product.price}
 						</p>
-					 	<UpdateCartButtons count={count} setCount={setCount} product={product} />
+					 	<UpdateCartButtons itemCount={itemCount} setItemCount={setItemCount} product={product} />
 					</div>
 				</div>
 			</React.Suspense>

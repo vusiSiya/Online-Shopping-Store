@@ -30,16 +30,15 @@ export async function getCartItems(){
 	const json = localStorage.getItem(CART_ITEMS_KEY) || null
 	if(json !== null){
 		const items = JSON.parse(json)
-		const newArray =  getNonRepeatingItems(items)
-		return newArray;
+		return items
 	}
 	return null
 }
 
 export async function getTotalCount() {
 	const cartItems = await getCartItems()
-	const count = cartItems?.reduce((sum, item)=> sum + item.count)
-	return count || 0
+	return cartItems ?
+		cartItems.reduce((sum, item)=> (sum + item.count), 0) : 0
 }
 
 export async function getTotalCost() {
@@ -55,19 +54,22 @@ export async function getTotalCost() {
 
 export async function addToCart(id) {
 	const cartItems = await getCartItems() || []
-	const currentItem =  await getSingleItem(id)
-	cartItems.unshift({
-		...currentItem,
-		 count: 1
-	})
-	localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(cartItems))
+	const existingItem = cartItems?.find(item => item.id === id) || null
+
+	if(existingItem === null){
+		const currentItem =  await getSingleItem(id)
+		currentItem.count = 1;
+		const newArray = [...cartItems, {...currentItem, count: 1}]
+		
+		localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newArray))
+	}
 }
 
-export async function updateCount(id, count=0){
+export async function updateCount(id, count=1){
 	const cartItems = await getCartItems()
 	const newArray = cartItems.map(item =>{
 		if(item.id === Number(id)){
-			item.count = Number(count)
+			return {...item, count: Number(count)}
 		}
 		return item
 	})
@@ -77,7 +79,7 @@ export async function updateCount(id, count=0){
 
 export async function removeProduct(id) {
 	const cartItems = await getCartItems()
-	const newArray = cartItems.filter(item => item.id != Number(id))
+	const newArray = cartItems?.filter(item => item.id != Number(id))
 	localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newArray))
 	return newArray
 } 
@@ -89,4 +91,11 @@ export function getNonRepeatingItems(array=[]) {
 		return isNotRepeating && item || null
 	}).filter(item=>item)
 }
+
+// export function arr(array=[]) {
+// 	return array.map(item =>{
+// 		const firstMatchingItem = array.filter(el=> el.id === item?.id)[0]
+// 		return firstMatchingItem || item
+// 	})
+// }
 

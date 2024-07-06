@@ -1,52 +1,58 @@
-import {FaTrash} from 'react-icons/fa6'
-import { updateCount, addToCart} from '../../api'
+import React  from "react";
+import {FaTrashCan} from 'react-icons/fa6'
+import { updateCount, addToCart, getTotalCount} from '../../api'
+import { useOutletContext } from 'react-router'
 
-export default function UpdateCartButtons({product, count, setCount}){
+export default function UpdateCartButtons({product, itemCount, setItemCount}){
 
-    if(!count) {
-        return <button 
-            className='btn--cart' 
-            id={product.id} 
-            onClick={async()=>{
-                await addToCart(product.id)}
-            }
-        >
-            Add to Cart
-        </button>
-            }
-    else if (count <= 3 ){
-        return <>
-            <button  
+    return (
+        <div style={{margin:"auto", display:"flex", gap:".5em"}}>
+        {(itemCount === 0) ?
+            <button 
+                className='btn--cart' 
                 id={product.id} 
                 onClick={async()=>{
-                    setCount(prevCount => prevCount + 1)
-                    await updateCount(product.id, count)}
+                    setItemCount(1)
+                    await addToCart(product.id)}
                 }
             >
-                +
+                Add to Cart
             </button>
-            <span className='count'>{product.count}</span>
-            <button  
-                id={product.id} 
-                onClick={async()=>{
-                    setCount(prevCount => prevCount - 1)
-                    await updateCount(product.id, count)}
-                }
-            >
-                -
-            </button>
-        </>
-    } else {
-        return <div className='flex'>
-            <input
-                type='number'
-                id={product.id}
-                value={count}
-                onInput={async (e)=>{
-                    return await updateCount(product.id, Number(e.target.value))}
-                } 
-            />
-            <FaTrash />
-        </div>	 
-    }
+
+        : (itemCount >= 4 ) ?
+            <div style={{display:"flex", gap:".5em", justifyContent:"center", alignItems:"center"}}>
+                <input
+                    style={{textAlign:"center"}}
+                    type='number'
+                    value={itemCount}
+                    onChange={async (e)=>{
+                        setItemCount(Number(e.target.value))
+                        return await updateCount(product.id, itemCount)}
+                    } 
+                />
+                <button>
+                    <FaTrashCan />
+                </button> 
+            </div>
+            :
+                <div style={{margin:"auto", display:"flex", gap:".5em"}}>
+                    <button id={product.id} onClick={async(e)=>{
+                            setItemCount(prevCount => prevCount + 1)
+                            await updateCount(product.id, itemCount )}
+                        }
+                    > +
+                    </button>
+
+                    <span className='count'>{itemCount}</span>
+
+                    <button id={product.id} onClick={async(e)=>{
+                            setItemCount(prevCount => prevCount - 1)
+                            await updateCount(product.id, itemCount)}
+                        }
+                    > -
+                    </button>
+                </div>
+            }
+        </div>
+    )
 }

@@ -1,17 +1,36 @@
 import React from 'react'
-import {useLoaderData} from "react-router-dom"
+import {useLoaderData, useOutletContext} from "react-router-dom"
 import { FaTrashCan } from "react-icons/fa6"
 import {getCartItems, updateCount, removeProduct} from "../../api"
 
 export async function loader(){
-	const cartItems = await getCartItems()
-	return cartItems || null
+	return await getCartItems()
 }
 
 export default function ProductsList() {
 
-	const products = useLoaderData()
+	const data = useLoaderData()
+	const [products, setProducts] = React.useState(data || null)
+	const [count, setCount] = useOutletContext()
 
+	React.useEffect(()=>{
+		const newCount = products?.reduce((sum, $)=> (sum + $.count), 0)
+		setCount(newCount)
+	}, [products])
+
+	async function handleChange(e){
+		let newCount = Number(e.target.value)
+		let id = Number(e.target.id)
+		await updateCount(id, newCount)
+		setProducts(prevItems => prevItems.map(item =>{
+			if (item.id === id) {
+				return {...item, count: newCount}
+			}
+			return item
+		}))
+	}
+
+	
 	const containerStyle = {
 		display: products && "flex" || "none",
 		alignItems: "flex-end",
@@ -36,32 +55,21 @@ export default function ProductsList() {
 							<p className="price" style={{ textAlign: "start", margin: "0", fontSize: "2rem" }}>
 								R {product.price}
 							</p>
-							<form 
-								className='flex' 
-								style={{gap:".5em"}}
-								onSubmit={(e)=>{
-									e.preventDefault()
-									const {id, value} = e.target
-									updateCount(id, Number(value))
-									.then(()=>product.count = Number(value))
-									.catch(err => console.error(err))
-								}} 
-							>
-								<input 
-									type="number" 
+							<div style={{display:"flex", gap:".5em", justifyContent:"center", alignItems:"center"}}>
+								<input
+									style={{textAlign:"center"}}
+									type='number'
 									id={product.id}
-									name={product.name + "-count"}
-									value={product.count} 
-								/> 
-								<i 
-									id={product.id} 
-									onClick={async ()=>{
-										return await removeProduct(product.id)}
-									}
-								>
+									value={product.count}
+									onChange={(e)=>handleChange(e)} 
+								/>
+								<button onClick={(e)=>{
+									console.log("deleted")
+								}}>
 									<FaTrashCan />
-								</i>
-							</form>
+								</button>
+								
+							</div>
 						</div>
 					</div>
 				))
