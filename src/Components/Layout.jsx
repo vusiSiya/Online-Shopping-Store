@@ -8,11 +8,14 @@ import siteLogo from "../Images/background/site_logo.png";
 
 export default function Layout() {
 
-  const [count, setCount] = React.useState(null)
+  const [count, setCount] = React.useState(0)
 
   React.useEffect(()=>{
     getTotalCount()
-    .then(data => setCount(data))
+    .then(data =>{
+      console.log(data)
+      setCount(data)
+    })
   }, [count])
 
 
@@ -53,7 +56,7 @@ export default function Layout() {
               >
                 <FaCartShopping style={cartStyle} />
               </Link>
-              <span className="count">{count || 0}</span>
+              <span className="count">{count}</span>
 
             </div>
           </nav>

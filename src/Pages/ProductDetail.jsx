@@ -6,20 +6,20 @@ import {
 	useLocation,
 	defer
 } from "react-router-dom"
-import getProducts, { updateCount, addToCart, getSingleProduct} from '../../api'
-import { FaSpinner, FaTrash } from 'react-icons/fa6'
+import {getSingleItem, getSingleCartItem} from '../../api'
+import { FaSpinner} from 'react-icons/fa6'
 import UpdateCartButtons from '../Components/updateCartButtons'
 
+
 export async function loader({ params }) {
-	const product = await getSingleProduct(params.id)
-	return product
+	const cartItem = await getSingleCartItem(params.id) 
+	return cartItem || await getSingleItem(params.id)
 }
 
 export default function ProductDetail() {
 
 	const product = useLoaderData();
 	const [count, setCount] = React.useState(product.count || 0)
-
 	const location = useLocation();
 	const searchParams = new URLSearchParams(location.state.search);
 	const filter = searchParams.get("category");
@@ -49,11 +49,10 @@ export default function ProductDetail() {
 						<p className='price' style={{ fontSize: "1.8rem",margin:"0 auto .8em"}}>
 							Price: R {product.price}
 						</p>
-					 	<UpdateCartButtons product={product}  count={count} setCount={setCount} />
+					 	<UpdateCartButtons count={count} setCount={setCount} product={product} />
 					</div>
 				</div>
 			</React.Suspense>
-
 		</section>
 	)
 }

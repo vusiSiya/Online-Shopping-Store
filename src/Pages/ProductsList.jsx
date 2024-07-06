@@ -10,13 +10,7 @@ export async function loader(){
 
 export default function ProductsList() {
 
-	const [products, setProducts] = React.useState([]) // state that updates
-	
-	React.useEffect(()=>{
-		getCartItems()
-		.then(data => setProducts(data))
-		.catch(err => console.error(err))
-	}, [products])
+	const products = useLoaderData()
 
 	const containerStyle = {
 		display: products && "flex" || "none",
@@ -25,35 +19,12 @@ export default function ProductsList() {
 		marginBottom: "0px"
 	}
 
-	function handleInput({value, id}) {
-		const product = products.find(product => product.id === Number(id))
-		product.count = Number(value)
-		updateCount(id, product.count)
-		.then(()=>{
-			const newArray = products.map(item =>{
-				if(item.id === Number(id)){
-					item.count = Number(product.count)
-				}
-				return item
-			})
-			setProducts(newArray)
-			console.log(products, products)
-		})
-		.catch(err =>console.error(err))
-	}
-
-	function handleClick({id}) {
-		removeProduct(id)
-		.then((items)=>{
-			setProducts(items)
-		})
-		.catch(err =>console.error(err))
-	}
-
 	return (
 		<>
-			{(products === null) ?
-				<h1 style={{ margin: "5em auto",textAlign:"center" }}>Your cart is empty!</h1>
+			{!products ?
+				<h1 style={{ margin: "5em auto",textAlign:"center" }}>
+					Your cart is empty!
+				</h1>
 				:
 				products.map((product) => product.count && (
 					<div key={product.id} className="display-products" style={containerStyle}>
@@ -65,17 +36,32 @@ export default function ProductsList() {
 							<p className="price" style={{ textAlign: "start", margin: "0", fontSize: "2rem" }}>
 								R {product.price}
 							</p>
-							<div className='flex gap-4'>
+							<form 
+								className='flex' 
+								style={{gap:".5em"}}
+								onSubmit={(e)=>{
+									e.preventDefault()
+									const {id, value} = e.target
+									updateCount(id, Number(value))
+									.then(()=>product.count = Number(value))
+									.catch(err => console.error(err))
+								}} 
+							>
 								<input 
 									type="number" 
-									id={product.id} 
-									value={product.count}
-									onInput={(event)=>handleInput(event.target)} 
+									id={product.id}
+									name={product.name + "-count"}
+									value={product.count} 
 								/> 
-								<i id={product.id} onClick={(event)=>handleClick(event.currentTarget)}>
+								<i 
+									id={product.id} 
+									onClick={async ()=>{
+										return await removeProduct(product.id)}
+									}
+								>
 									<FaTrashCan />
 								</i>
-							</div>
+							</form>
 						</div>
 					</div>
 				))

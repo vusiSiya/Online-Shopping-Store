@@ -1,8 +1,7 @@
 import {FaTrash} from 'react-icons/fa6'
 import { updateCount, addToCart} from '../../api'
 
-export default function UpdateCartButtons({product , count, setCount}){
-    //let return null
+export default function UpdateCartButtons({product, count, setCount}){
 
     if(!count) {
         return <button 
@@ -26,7 +25,6 @@ export default function UpdateCartButtons({product , count, setCount}){
             >
                 +
             </button>
-            
             <span className='count'>{product.count}</span>
             <button  
                 id={product.id} 
@@ -40,15 +38,15 @@ export default function UpdateCartButtons({product , count, setCount}){
         </>
     } else {
         return <div className='flex'>
-            <input 
+            <input
                 type='number'
                 id={product.id}
                 value={count}
-                onChange={(event)=>handleChange(event)}
+                onInput={async (e)=>{
+                    return await updateCount(product.id, Number(e.target.value))}
+                } 
             />
             <FaTrash />
         </div>	 
     }
-
-    return ui;
 }

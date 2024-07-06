@@ -25,7 +25,6 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route
             path="about"
             element={<About />}
-            //loader={aboutLoader}
         />
         <Route
             path="products"
@@ -42,7 +41,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route
             path="on-cart"
             element={<ProductsList />}
-            //loader={productsListLoader}
+            loader={productsListLoader}
         />
         <Route path="*" element={<ResourceNotFound />} />
     </Route>

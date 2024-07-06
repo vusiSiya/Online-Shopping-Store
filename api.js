@@ -15,16 +15,20 @@ export default async function getProducts() {
 	return products || null
 }
 
-export async function getSingleProduct(id){
+export async function getSingleItem(id){
 	const products = await getProducts() 
 	const item = products.find(product=>product.id === Number(id)) 
 	return item || null
 }
 
+export async function getSingleCartItem(id){
+	const products = await getCartItems() 
+	return products && products.find(product=> product.id === Number(id)) || null
+}
+
 export async function getCartItems(){
 	const json = localStorage.getItem(CART_ITEMS_KEY) || null
-
-	if(json){
+	if(json !== null){
 		const items = JSON.parse(json)
 		const newArray =  getNonRepeatingItems(items)
 		return newArray;
@@ -51,13 +55,12 @@ export async function getTotalCost() {
 
 export async function addToCart(id) {
 	const cartItems = await getCartItems() || []
-	const currentItem =  await getSingleProduct(id)
+	const currentItem =  await getSingleItem(id)
 	cartItems.unshift({
 		...currentItem,
 		 count: 1
 	})
-	const newArray = getNonRepeatingItems(cartItems)
-	localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newArray))
+	localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(cartItems))
 }
 
 export async function updateCount(id, count=0){
@@ -79,7 +82,7 @@ export async function removeProduct(id) {
 	return newArray
 } 
 
-function getNonRepeatingItems(array=[]) {
+export function getNonRepeatingItems(array=[]) {
 	return array.map((item)=>{
 		const matchingItems = array.filter($=> $.id === item?.id)
 		const isNotRepeating = (matchingItems.length === 1)
