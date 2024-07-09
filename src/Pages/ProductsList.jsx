@@ -62,7 +62,8 @@ export default function ProductsList() {
 							<button onClick={async ()=>{
 								let id = product.id
 								await removeProduct(id)
-								setProducts([])
+								const newArray = products.filter(item => item.id !== id)
+								setProducts(newArray)
 							}}>
 								<FaTrashCan />
 							</button>
