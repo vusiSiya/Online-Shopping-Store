@@ -17,8 +17,7 @@ export default async function getProducts() {
 
 export async function getSingleItem(id){
 	const products = await getProducts() 
-	const item = products.find(product=>product.id === Number(id)) 
-	return item || null
+	return products.find(product=>product.id === Number(id)) || null
 }
 
 export async function getSingleCartItem(id){
@@ -58,9 +57,7 @@ export async function addToCart(id) {
 
 	if(existingItem === null){
 		const currentItem =  await getSingleItem(id)
-		currentItem.count = 1;
 		const newArray = [...cartItems, {...currentItem, count: 1}]
-		
 		localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newArray))
 	}
 }
@@ -81,7 +78,6 @@ export async function removeProduct(id) {
 	const cartItems = await getCartItems()
 	const newArray = cartItems?.filter(item => item.id != Number(id))
 	localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newArray))
-	return newArray
 } 
 
 export function getNonRepeatingItems(array=[]) {
@@ -97,5 +93,8 @@ export function getNonRepeatingItems(array=[]) {
 // 		const firstMatchingItem = array.filter(el=> el.id === item?.id)[0]
 // 		return firstMatchingItem || item
 // 	})
+// 	const matchingItems = array.filter(el=> el.id === item?.id)
+// 	matchingItems.pop()
+// 	array = [...array, ...matchingItems]
 // }
 

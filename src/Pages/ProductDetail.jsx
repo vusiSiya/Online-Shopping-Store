@@ -1,13 +1,19 @@
 import React from 'react'
 import {
-	Await,
 	Link,
 	useLoaderData,
 	useLocation,
-	defer
-} from "react-router-dom"
-import {getSingleItem, getSingleCartItem} from '../../api'
-import { FaSpinner} from 'react-icons/fa6'
+	useOutletContext } from "react-router-dom"
+	
+import {
+	getSingleItem,
+	getSingleCartItem,
+	getTotalCount,
+	addToCart,
+	updateCount,
+	removeProduct } from '../../api'
+
+import { FaSpinner } from 'react-icons/fa6'
 import UpdateCartButtons from '../Components/updateCartButtons'
 
 
@@ -19,10 +25,29 @@ export async function loader({ params }) {
 export default function ProductDetail() {
 
 	const product = useLoaderData();
-	const [itemCount, setItemCount] = React.useState(product.count || 0)
+	const [itemCount, setItemCount] = React.useState(product?.count || 0)
+	const [count, setCount] = useOutletContext(); // global count of items on cart
+
 	const location = useLocation();
 	const searchParams = new URLSearchParams(location.state.search);
 	const filter = searchParams.get("category");
+
+    React.useEffect(()=>{
+        getTotalCount()
+        .then(data =>setCount(data))
+    }, [itemCount])
+
+	async function handleChange(e){
+		let newCount = Number(e.target.value)
+		await updateCount(product.id, newCount)
+		setItemCount(newCount)
+	}
+
+	async function handleClick(e){
+		let newCount = (e.target.id === "plus") ?  itemCount + 1 : itemCount - 1
+		await updateCount(product.id, newCount)
+		setItemCount(newCount)
+	}
 
 	return (
 		<section className='product details'>
@@ -49,7 +74,20 @@ export default function ProductDetail() {
 						<p className='price' style={{ fontSize: "1.8rem", margin:"0 auto .8em"}}>
 							Price: R {product.price}
 						</p>
-					 	<UpdateCartButtons itemCount={itemCount} setItemCount={setItemCount} product={product} />
+					 	<UpdateCartButtons
+							id={product.id}
+							itemCount={itemCount}
+							handleChange={handleChange}
+							handleClick={handleClick}	
+							addItem={async ()=>{
+								await addToCart(product.id)
+								setItemCount(1)
+							}}
+							removeItem={async ()=>{
+								await removeProduct(product.id)
+								setItemCount(0)
+							}}
+						/>
 					</div>
 				</div>
 			</React.Suspense>
