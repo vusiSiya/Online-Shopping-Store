@@ -1,7 +1,7 @@
 
 
-//const src = "https://raw.githubusercontent.com/vusiSiya/Online-Shopping-Store/main/src/Images"
-const src = "src/Images"
+const src = "https://raw.githubusercontent.com/vusiSiya/Online-Shopping-Store/main/src/Images"
+//const src = "src/Images"
 const products = [{
     id: 1,
     imgUrl: src + "/Watches/Heuer-SilverSnoe.jpg",
