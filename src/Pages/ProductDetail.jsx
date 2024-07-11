@@ -14,7 +14,7 @@ import {
 	removeProduct } from '../../api'
 
 import { FaSpinner } from 'react-icons/fa6'
-import UpdateCartButtons from '../Components/updateCartButtons'
+import UpdateCartButtons from '../Components/UpdateCartButtons'
 
 
 export async function loader({ params }) {
