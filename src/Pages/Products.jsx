@@ -21,8 +21,7 @@ export async function loader({request}) {
 	}).filter(el=>el)
 
 	const filteredItems = products.filter(item => item.category === filter)
-	const newArray = getNonRepeatingItems(randomItemsArray);
-	
+	const newArray = getNonRepeatingItems(randomItemsArray);	
 	return filter ? filteredItems : newArray
 }
 

@@ -62,7 +62,7 @@ export default function ProductDetail() {
 			<React.Suspense fallback={<FaSpinner/>}>
 				<div className="selected-product" >
 					<img
-						src={`/${product.imgUrl}`}
+						src={product.imgUrl}
 						alt={product.name}
 						className='product--img'
 						style={{boxShadow: "0px 0px 10px 0px grey", borderRadius: ".5rem" }}

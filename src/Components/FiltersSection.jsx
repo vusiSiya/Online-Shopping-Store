@@ -1,6 +1,6 @@
 
 
-export default function FiltersSection({filter,setSearchParams}) {
+export default function FiltersSection({filter, setSearchParams}) {
     return (
         <section className="filters">
             <button
